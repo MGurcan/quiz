@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route exact path="/" element={  <Navbar/>} />
+        <Route exact path="/" element={  <SoccerPlayerName />} />
         <Route exact path="/page" element={  <h1>bb</h1> } />
         <Route exact path="/login" element={  <h2>login</h2>} />
         <Route exact path="/soccerPlayerName" element={  <SoccerPlayerName />} />

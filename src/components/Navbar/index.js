@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from 'react-router-dom';
 export const Navbar = () =>{
     return (
-        <div className= "bg-gradient-to-r from-yesil to-mavi w-full min-h-[1000px]" >
         <nav className="bg-siyah shadow-md px-10 py-5">
           <div className="container mx-auto md:flex md:items-center">
           <Link to="http://localhost:3000/page"> 
@@ -20,6 +19,5 @@ export const Navbar = () =>{
          </button>
           </div>
         </nav>
-        </div>
     );
 };

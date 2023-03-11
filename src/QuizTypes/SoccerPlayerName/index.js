@@ -12,6 +12,7 @@ import { Big6TeamsLogos } from "../../teamDatas/Big6Teams";
 import { LeagueLogos } from "../../teamDatas/Big6Teams";
 import {MdOutlineDoNotDisturb} from 'react-icons/md';
 import AlertItem from "../../components/AlertItem";
+import { Navbar } from "../../components/Navbar";
 
 const SoccerPlayerName = () => {
   
@@ -135,8 +136,10 @@ const SoccerPlayerName = () => {
   }
 
   return(
-    <div className="min-h-[1000px] w-full flex justify-center bg-gradient-to-r from-acikMavi to-siyah text-elifSiyah font-serif">
-      <AlertItem win={true} player={comparePlayer} predict={`${predictions.length} / 7`} handlePositionLogo={handlePositionLogo}/>
+    <div className="min-h-[1000px] w-full text-elifSiyah font-serif bg-gradient-to-r from-yesil to-mavi">
+    <Navbar />
+    <div className="flex flex-col items-center">
+      {/* <AlertItem win={true} player={comparePlayer} predict={`${predictions.length} / 7`} handlePositionLogo={handlePositionLogo}/> */}
       <div className='w-[500px] flex flex-col items-center'>
         <div className="w-full">
           <PredictionInput text={text} onChangeText={onChangeText} numberOfPredictions={predictions.length} totalPredictions={7} className='m-2'/>
@@ -240,6 +243,7 @@ const SoccerPlayerName = () => {
           )}
         </ul>
       </div>
+    </div>
     </div>
   );
 };
