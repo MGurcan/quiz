@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
+      'white' : '#ffffff',
       'blue': '#1fb6ff',
       'purple': '#7e5bef',
       'pink': '#ff49db',
@@ -18,7 +19,7 @@ module.exports = {
       'red': '#ef476f',
       'lacivert': '#25316d',
       'turuncu': '#ff0303',
-      'mavi': '#4e6e81',
+      'eskiMavi': '#4e6e81',
       'gri': '#ececec',
       'elifBeyaz' : '#FEFBE9',
       'elifYesil' : '#E1EEDD',
@@ -27,9 +28,11 @@ module.exports = {
       'elifGri' : '#dddddd',
       'elifMavi': '#AEBDCA',
       'elifKoyuMavi': '#1c658c',
-      'white' : '#ffffff',
       'acikMavi' :'#0466c8',
-      'siyah' : '#001233', 
+      'mor' : '#3d096c',
+      'yesil' : '#3a5a40',
+      'siyah' : '#10002b',
+      'mavi' : '#003566',
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
