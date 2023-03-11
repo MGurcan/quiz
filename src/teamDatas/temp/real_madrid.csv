@@ -1,0 +1,25 @@
+LeagueName,TeamName,ShirtNo,Name,BirthDate,Height,Foot,Joined Date,Contract End Date,Market Value,Position,Country
+Laliga,Real Madrid,1,Thibaut Courtois,"May 11, 1992 (30)","2,00m",left,"Aug 9, 2018","Jun 30, 2026",€60.00m,Goalkeeper,Belgium
+Laliga,Real Madrid,3,Éder Militão,"Jan 18, 1998 (25)","1,86m",right,"Jul 1, 2019","Jun 30, 2025",€60.00m,Centre-Back,Brazil
+Laliga,Real Madrid,22,Antonio Rüdiger,"Mar 3, 1993 (30)","1,90m",right,"Jul 1, 2022","Jun 30, 2026",€40.00m,Centre-Back,Germany
+Laliga,Real Madrid,5,Jesús Vallejo,"Jan 5, 1997 (26)","1,84m",right,"Jul 31, 2015","Jun 30, 2025",€2.50m,Centre-Back,Spain
+Laliga,Real Madrid,2,Daniel Carvajal,"Jan 11, 1992 (31)","1,73m",right,"Jul 1, 2013","Jun 30, 2025",€18.00m,Right-Back,Spain
+Laliga,Real Madrid,16,Álvaro Odriozola,"Dec 14, 1995 (27)","1,76m",right,"Jul 5, 2018","Jun 30, 2024",€6.00m,Right-Back,Spain
+Laliga,Real Madrid,15,Federico Valverde,"Jul 22, 1998 (24)","1,82m",right,"Jul 1, 2018","Jun 30, 2027",€100.00m,Central Midfield,Uruguay
+Laliga,Real Madrid,8,Toni Kroos,"Jan 4, 1990 (33)","1,83m",right,"Jul 17, 2014","Jun 30, 2023",€20.00m,Central Midfield,Germany
+Laliga,Real Madrid,19,Dani Ceballos,"Aug 7, 1996 (26)","1,79m",right,"Jul 14, 2017","Jun 30, 2023",€9.00m,Central Midfield,Spain
+Laliga,Real Madrid,7,Eden Hazard,"Jan 7, 1991 (32)","1,75m",right,"Jul 1, 2019","Jun 30, 2024",€7.50m,Left Winger,Belgium
+Laliga,Real Madrid,11,Marco Asensio,"Jan 21, 1996 (27)","1,82m",left,"Jul 1, 2015","Jun 30, 2023",€25.00m,Right Winger,Spain
+Laliga,Real Madrid,24,Mariano Díaz,"Aug 1, 1993 (29)","1,80m",right,"Aug 29, 2018","Jun 30, 2023",€3.00m,Centre-Forward,Dominican Republic
+Laliga,Real Madrid,13,Andriy Lunin,"Feb 11, 1999 (24)","1,91m",right,"Jul 1, 2018","Jun 30, 2024",€4.00m,Goalkeeper,Ukraine
+Laliga,Real Madrid,4,David Alaba,"Jun 24, 1992 (30)","1,80m",left,"Jul 1, 2021","Jun 30, 2026",€55.00m,Centre-Back,Austria
+Laliga,Real Madrid,6,Nacho Fernández,"Jan 18, 1990 (33)","1,80m",right,"Sep 1, 2012","Jun 30, 2023",€5.00m,Centre-Back,Spain
+Laliga,Real Madrid,23,Ferland Mendy,"Jun 8, 1995 (27)","1,80m",left,"Jul 1, 2019","Jun 30, 2025",€40.00m,Left-Back,France
+Laliga,Real Madrid,17,Lucas Vázquez,"Jul 1, 1991 (31)","1,73m",right,"Jul 2, 2015","Jun 30, 2024",€9.00m,Right-Back,Spain
+Laliga,Real Madrid,18,Aurélien Tchouameni,"Jan 27, 2000 (23)","1,87m",right,"Jul 1, 2022","Jun 30, 2028",€90.00m,Defensive Midfield,France
+Laliga,Real Madrid,12,Eduardo Camavinga,"Nov 10, 2002 (20)","1,82m",left,"Aug 31, 2021","Jun 30, 2027",€50.00m,Central Midfield,France
+Laliga,Real Madrid,10,Luka Modric,"Sep 9, 1985 (37)","1,72m",right,"Aug 27, 2012","Jun 30, 2023",€10.00m,Central Midfield,Croatia
+Laliga,Real Madrid,20,Vinicius Junior,"Jul 12, 2000 (22)","1,76m",right,"Jul 12, 2018","Jun 30, 2024",€120.00m,Left Winger,Brazil
+Laliga,Real Madrid,21,Rodrygo,"Jan 9, 2001 (22)","1,74m",right,"Jul 1, 2019","Jun 30, 2025",€80.00m,Right Winger,Brazil
+Laliga,Real Madrid,9,Karim Benzema,"Dec 19, 1987 (35)","1,85m",right,"Jul 9, 2009","Jun 30, 2023",€35.00m,Centre-Forward,France
+Laliga,Real Madrid,39,Álvaro Rodríguez,"Jul 14, 2004 (18)","1,93m",left,-,"Jun 30, 2027",€2.00m,Centre-Forward,Uruguay

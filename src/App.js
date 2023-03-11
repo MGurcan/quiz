@@ -1,17 +1,19 @@
 import './App.css';
 import SoccerPlayerName from './QuizTypes/SoccerPlayerName';
-import AddTemptDataFirebase from './components/addTempDataFirebase';
-import TempConnection from './components/tempconnection';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { Utf16 } from './dummyTrys/utf16';
 function App() {
   return (
     <>
-      {/* <SoccerPlayerName /> */}
-      {/* <AddTemptDataFirebase /> */}
-     {/*  <TempConnection /> */}
-     <Utf16 />
+
+    <SoccerPlayerName />
+     {/*  <Routes>
+        <Route exact path="/" element={  <h1>a</h1> } />
+        <Route exact path="/page" element={  <h1>bb</h1> } />
+        <Route exact path="/login" element={  <h2>login</h2>} />
+      </Routes> */}
     </>
+
   );
 }
 

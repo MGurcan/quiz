@@ -1,62 +1,119 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PredictionInput from "../../components/PredictionInput";
 import { BsArrowDown, BsArrowUp, BsArrowsMove } from 'react-icons/bs';
 import { IoMdFootball } from 'react-icons/io';
 import { GiGoalKeeper, GiCheckedShield } from 'react-icons/gi';
-const SoccerPlayerName = () => {
+import { Big6Teams } from "../../teamDatas/Big6Teams";
+import quizPlayer from "../../teamDatas/QuizPlayers";
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { fadeIn } from 'react-animations';
+import styled, { keyframes } from 'styled-components';
+import { Big6TeamsLogos } from "../../teamDatas/Big6Teams";
+import { LeagueLogos } from "../../teamDatas/Big6Teams";
+import {MdOutlineDoNotDisturb} from 'react-icons/md';
+import AlertItem from "../../components/AlertItem";
 
+const SoccerPlayerName = () => {
+  
   const [text, onChangeText] = React.useState('');
   const [players, setPlayers] = React.useState(null);
-  const [isLoading, setIsLoading] = React.useState(false);
   const [predictions, setPredictions] = React.useState([]);
 
-  React.useEffect(() => {
-    setIsLoading(true);
-    fetch(`https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=${text}`)
-      .then(response => response.json())
-      .then(data => {
-        console.log("data: ", data.player)
-        setPlayers(data.player);
-        setIsLoading(false);
-      })
-      .catch(error => console.log(error));}, [text]);
-    
-      React.useEffect(() => {
-        if(predictions.length >= 5){
-          alert("YETER LAA KAC TANE DENİYON")
-          setPredictions([]);
-        }
-      }, [predictions]);
+  const comparePlayer = quizPlayer;
+  
+  const fadeDuration = 500; // duration of fade animation in milliseconds
+
+  const fadeInAnimation = keyframes`${fadeIn}`;
+  
+  const FadeInDiv0 = styled.div`
+    animation: ${fadeDuration}ms ${fadeInAnimation};
+  `;
+  const FadeInDiv1 = styled.div`
+  animation: ${fadeDuration+1000}ms ${fadeInAnimation};
+  `;
+  const FadeInDiv2 = styled.div`
+  animation: ${fadeDuration+2000}ms ${fadeInAnimation};
+  `;
+  const FadeInDiv3 = styled.div`
+  animation: ${fadeDuration+3000}ms ${fadeInAnimation};
+  `;
+  const FadeInDiv4 = styled.div`
+  animation: ${fadeDuration+4000}ms ${fadeInAnimation};
+  `;
+  const FadeInDiv5 = styled.div`
+  animation: ${fadeDuration+5000}ms ${fadeInAnimation};
+  `;
+  const FadeInDiv6 = styled.div`
+  animation: ${fadeDuration+6000}ms ${fadeInAnimation};
+  `;
 
   const handleAddNewPredict = (e) => {
-    console.log(e);
+    if(e === comparePlayer)
+      alert('You')
     setPredictions([...predictions, e]);
   }
+  
 
+  useEffect(() => {
+    if(text.length > 2){
+      setPlayers(Big6Teams.filter((player) => player.Name.toLowerCase().includes(text.toLowerCase())));
+    }
+    else
+      setPlayers([])
+  }, [text])
+  
 
-  const handleHeight = (height, compareHeight) => {
-    const indexOfMeter = height.indexOf('m');
-    const logo = compareHeight > parseFloat(height.substring(indexOfMeter-5, indexOfMeter-1)) ? <BsArrowUp /> : <BsArrowDown />;
-    return <div className="flex flex-row justify-center items-center"> {height.substring(indexOfMeter-5, indexOfMeter+1)} {logo} </div>
+  const handleShirtNo = (shirtNo, compareShirtNo) => {
+    const realShirtNo = parseInt(shirtNo);
+    const realCompareShirtNo = parseInt(compareShirtNo)
+    const logo = realCompareShirtNo === realShirtNo ? null : (realCompareShirtNo > realShirtNo ? <BsArrowUp /> : <BsArrowDown />);
+    return <div className="flex flex-row justify-center items-center"> #{shirtNo} {logo} </div>
   }
 
+  const handleHeight = (height, compareHeight) => {
+    const realHeight = parseFloat(height.substring(0, height.length-1).replace(',', '.'));
+    const realCompareHeight = parseFloat(compareHeight.substring(0, compareHeight.length-1).replace(',', '.'));
+    const logo = realCompareHeight === realHeight ? null : (realCompareHeight > realHeight ? <BsArrowUp /> : <BsArrowDown />);
+    return <div className="flex flex-row justify-center items-center"> {height} {logo} </div>
+  }
+
+  const handleValue = (value, compareValue) => {
+    let logo;
+    if(value?.includes('m') && compareValue?.includes('k'))
+      logo = <BsArrowDown />;
+    else if(value?.includes('k') && compareValue?.includes('m'))
+      logo = <BsArrowUp />;
+    else{
+      const val = parseFloat(value?.substring(1, value.length-1));
+      const compareVal = parseFloat(compareValue.substring(1, compareValue.length-1));
+      
+      logo = compareVal === val ? null : (compareVal > val ? <BsArrowUp /> : <BsArrowDown />);
+    }
+    
+    return <div className="flex flex-row justify-center items-center"> {value} {logo} </div>
+  }
+
+  const getAgeFromBirthDate = (birthDate) => {
+    return parseInt(birthDate.substring(birthDate.indexOf('(')+1, birthDate.indexOf('(')+3));
+  }
   const handleAge = (age, compareAge) => {
-    const realAge = 2023 - parseInt(age.substring(0,4))
-    const logo = compareAge > parseInt(realAge) ? <BsArrowUp /> : <BsArrowDown />;
+    const realAge = getAgeFromBirthDate(age);
+    const realCompareAge = getAgeFromBirthDate(compareAge);
+    const logo = realAge == realCompareAge ? null : (realCompareAge > parseInt(realAge) ? <BsArrowUp /> : <BsArrowDown />);
     return <div className="flex flex-row justify-center items-center"> {realAge} {logo} </div>
   }
   const handlePositionLogo = (position) => {
     if(position.toLowerCase().includes('forward')){
-      return <IoMdFootball size={35}/>;
+      return <div className="flex flex-col justfiy-center items-center text-[12px]"><IoMdFootball size={20}/>Forward</div>;
     }
-    else if(position.toLowerCase().includes('midfield')){
-      return <BsArrowsMove size={35}/>;
+    else if(position.toLowerCase().includes('midfield') || position.toLowerCase().includes('winger')){
+      return <div className="flex flex-col justfiy-center items-center text-[12px]"><BsArrowsMove size={20}/>Midfield</div>;
     }
     else if(position.toLowerCase().includes('keeper')){
-      return <GiGoalKeeper size={35}/>;
+      return <div className="flex flex-col justfiy-center items-center text-[12px]"><GiGoalKeeper size={20}/>Goalkeeper</div>;
     }
     else if(position.toLowerCase().includes('back')){
-      return <GiCheckedShield size={35}/>;
+      return <div className="flex flex-col justfiy-center items-center text-[12px]"><GiCheckedShield size={20}/>Deffensive</div>;
     }
     else{
       return null;
@@ -66,82 +123,120 @@ const SoccerPlayerName = () => {
   const handleColor = (actualValue, trueValue) => {
     return actualValue === trueValue ? ' bg-green ' : ' bg-red ';
   }
-  const teamLogos = 
-    {
-      'Manchester United': 'https://www.thesportsdb.com/images/media/team/badge/xzqdr11517660252.png',
-      'Liverpool': 'https://www.thesportsdb.com/images/media/team/badge/uvxuqq1448813372.png',
-    'Bournemouth': 'https://www.thesportsdb.com/images/media/team/badge/y08nak1534071116.png',
-    'Chelsea' :
-'https://www.thesportsdb.com/images/media/team/badge/yvwvtu1448813215.png',
-    'Leeds' :
-'https://www.thesportsdb.com/images/media/team/badge/g0eqzw1598804097.png',
-    'Wolves' :
-'https://www.thesportsdb.com/images/media/team/badge/u9qr031621593327.png',
-    'Arsenal' :
-'https://www.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png',
-    'Brighton' :
-'https://www.thesportsdb.com/images/media/team/badge/ywypts1448810904.png',
-    'Fulham' :
-'https://www.thesportsdb.com/images/media/team/badge/xwwvyt1448811086.png',
-    'Southampton' :
-'https://www.thesportsdb.com/images/media/team/badge/ggqtd01621593274.png',
-    'Manchester City' :
-'https://www.thesportsdb.com/images/media/team/badge/vwpvry1467462651.png',
-    'Nottingham Forest' :
-'https://www.thesportsdb.com/images/media/team/badge/bk4qjs1546440351.png',
-    'Brentford' :
-'https://www.thesportsdb.com/images/media/team/badge/grv1aw1546453779.png',
-    'Everton' :
-'https://www.thesportsdb.com/images/media/team/badge/eqayrf1523184794.png',
-    'Leicester' :
-'https://www.thesportsdb.com/images/media/team/badge/xtxwtu1448813356.png',
-    'West Ham' :
-'https://www.thesportsdb.com/images/media/team/badge/yutyxs1467459956.png',
-    'Crystal Palace' :
-'https://www.thesportsdb.com/images/media/team/badge/ia6i3m1656014992.png',
-    'Aston Villa' :
-'https://www.thesportsdb.com/images/media/team/badge/gp6hm41660559699.png',
-    'Tottenham' :
-'https://www.thesportsdb.com/images/media/team/badge/dfyfhl1604094109.png',
-    'Newcastle' :
-'https://www.thesportsdb.com/images/media/team/badge/lhwuiz1621593302.png',
+
+  const predictionBgColor = () => {
+    const level = predictions.length;
+    if(level < 4)
+      return 'bg-green shadow-md shadow-green border-green';
+    else if(level === 5)
+      return 'bg-pink shadow-md shadow-pink border-pink';
+    else
+      return 'bg-red shadow-md shadow-red border-red';
   }
 
   return(
-    <div className="min-h-[1000px] w-full flex justify-center bg-blue">
+    <div className="min-h-[1000px] w-full flex justify-center bg-gradient-to-r from-acikMavi to-siyah text-elifSiyah font-serif">
+      <AlertItem win={true} player={comparePlayer} predict={`${predictions.length} / 7`} handlePositionLogo={handlePositionLogo}/>
       <div className='w-[500px] flex flex-col items-center'>
         <div className="w-full">
-          <PredictionInput text={text} onChangeText={onChangeText} className='m-2'/>
+          <PredictionInput text={text} onChangeText={onChangeText} numberOfPredictions={predictions.length} totalPredictions={7} className='m-2'/>
           <ul className="max-h-[300px] overflow-y-auto">
-            {players?.map(player => teamLogos.hasOwnProperty(player.strTeam) && 
-            <>
+          {players?.map((player) => {
+            const teamLogo = Big6TeamsLogos[player.TeamName] ? <img src={Big6TeamsLogos[player.TeamName]} className='h-[50px] w-[50px]'/> : <>{player.TeamName}</>;
             
-              <li onClick={() => handleAddNewPredict(player)} className="flex justify-between items-center bg-gray-light p-4 hover:opacity-70 hover:cursor-pointer">
-                <span className="w-[150px] text-left"><img className="w-[50px] h-[50px]" src={teamLogos[player.strTeam]}/></span> 
-                <span className="w-[150px] text-center">{player.strPlayer}</span>
-                <span className="w-[150px] text-right">{player.strTeam}</span>
+            let alreadyPredicted = false;
+            predictions.map((predict) => {if(player === predict) alreadyPredicted = true})
+
+            if(alreadyPredicted){
+              return (
+                <li className="flex justify-between items-center bg-red p-4 opacity-70 hover:cursor-pointer rounded-md m-3 shadow-md shadow-elifGri relative text-white">
+                  <span className="absolute left-0 top-0 flex flex-row justify-center items-center"><MdOutlineDoNotDisturb />Predicted</span>
+                  <span className="w-[150px] text-left">#{player.ShirtNo}</span>
+                  <span className="w-[150px] text-left">{player.Name}</span>                
+                  <span className="w-[150px] text-right flex justify-end">{teamLogo}</span>
               </li>
-              </>
-              )}
+              )
+            }
+              return(
+                <li onClick={() => handleAddNewPredict(player)} className="flex justify-between items-center bg-elifYesil p-4 hover:opacity-70 hover:cursor-pointer rounded-md m-3 shadow-md shadow-elifGri">
+                  <span className="w-[150px] text-left">#{player.ShirtNo}</span>
+                  <span className="w-[150px] text-left">{player.Name}</span>                
+                  <span className="w-[150px] text-right flex justify-end">{teamLogo}</span>
+                </li>
+              )   
+          })}
           </ul>
         </div>
+        <div className={`${predictionBgColor()} flex justify-center items-center w-[200px] h-[80px] text-[24px] rounded-md`}>Predictions: {predictions.length} / 7</div>
+        <ul className="m-4">
+        <li className="flex flex-row justify-between p-4 m-2 items-center text-center font-black text-white">
+            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-elifKoyuMavi">Shirt No</span>
+            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-elifKoyuMavi">Nationality</span>
+            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-elifKoyuMavi">Height</span>
+            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-elifKoyuMavi">Age</span>
+            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-elifKoyuMavi">League</span>
+            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-elifKoyuMavi">Position</span>
+            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-elifKoyuMavi">Value</span>
+          </li>
+          {predictions.map((predict, index) => 
+          {
+          return(
+            <div className="border-2 border-elifGri rounded-md p-2 m-2 bg-elifKoyuMavi text-white font-black">
+            <h2 className="w-full text-center font-black">{predict.Name}</h2>
+        {index === predictions.length-1 ? 
+          <li>
+            <TransitionGroup className="w-[650px] flex flex-row justify-between m-2 items-center text-center">
+            <CSSTransition timeout={fadeDuration} classNames="fade">
+              <FadeInDiv0><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.ShirtNo, comparePlayer.ShirtNo)}`}>{handleShirtNo(predict.ShirtNo, comparePlayer.ShirtNo)}</span></FadeInDiv0>
+            </CSSTransition>
+          
+          
+            <CSSTransition timeout={fadeDuration} classNames="fade">
+              <FadeInDiv1><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Country, comparePlayer.Country)}`}>{predict.Country}</span></FadeInDiv1>
+            </CSSTransition>
+          
+          
+            <CSSTransition timeout={fadeDuration} classNames="fade">
+              <FadeInDiv2><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Height, comparePlayer.Height)}`}>{handleHeight(predict.Height, comparePlayer.Height)}</span></FadeInDiv2>
+            </CSSTransition>
+          
+          
+            <CSSTransition timeout={fadeDuration} classNames="fade">
+              <FadeInDiv3><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(getAgeFromBirthDate(predict.BirthDate), getAgeFromBirthDate(comparePlayer.BirthDate))}`}>{handleAge(predict.BirthDate, comparePlayer.BirthDate)}</span></FadeInDiv3>
+            </CSSTransition>
+          
+          
+            <CSSTransition timeout={fadeDuration} classNames="fade">
+              <FadeInDiv4><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.LeagueName, comparePlayer.LeagueName)}`}>{<img src={LeagueLogos[predict.LeagueName]} className='w-[50px] h-[50px]'/>}</span></FadeInDiv4>
+            </CSSTransition>
+          
+          
+            <CSSTransition timeout={fadeDuration} classNames="fade">
+              <FadeInDiv5><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Position, comparePlayer.Position)}`}>{handlePositionLogo(predict.Position)}</span></FadeInDiv5>
+            </CSSTransition>
+          
+          
+            <CSSTransition timeout={fadeDuration} classNames="fade">
+              <FadeInDiv6><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.MarketValue, comparePlayer.MarketValue)}`}>{handleValue(predict.MarketValue, comparePlayer.MarketValue)}</span></FadeInDiv6>
+            </CSSTransition>
+            </TransitionGroup>
+          </li>
+          : 
+          <li className="w-[650px] flex flex-row justify-between m-2 items-center text-center">
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.ShirtNo, comparePlayer.ShirtNo)}`}>{handleShirtNo(predict.ShirtNo, comparePlayer.ShirtNo)}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Country, comparePlayer.Country)}`}>{predict.Country}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Height, comparePlayer.Height)}`}>{handleHeight(predict.Height, comparePlayer.Height)}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.BirthDate, comparePlayer.BirthDate)}`}>{handleAge(predict.BirthDate, comparePlayer.BirthDate)}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.LeagueName, comparePlayer.LeagueName)}`}>{<img src={LeagueLogos[predict.LeagueName]} className='w-[50px] h-[50px]'/>}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Position, comparePlayer.Position)}`}>{handlePositionLogo(predict.Position)}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.MarketValue, comparePlayer.MarketValue)}`}>{handleValue(predict.MarketValue, comparePlayer.MarketValue)}</span>
+          </li>
+      }
+            
 
-        <ul className="m-4 divide-y">
-        <li className="w-[600px] flex flex-row justify-between m-2 items-center text-center">
-            <span className="w-1/5 flex justify-center">TEAM</span>
-            <span className="w-1/5 flex justify-center">FOOT</span>
-            <span className="w-1/5 flex justify-center">HEIGHT</span>
-            <span className="w-1/5 flex justify-center">AGE</span>
-            <span className="w-1/5 flex justify-center">POSITION</span>
-          </li>
-          {predictions.map(predict =>
-          <li className="w-[600px] flex flex-row justify-between m-2 items-center text-center">
-            <span className={`w-1/5 h-[50px] flex justify-center items-center ${handleColor(predict.strTeam, 'Manchester United')}`}><img className="w-[50px] h-[50px] " src={teamLogos[predict.strTeam]}/></span>
-            <span className={`w-1/5 h-[50px] flex justify-center items-center ${handleColor(predict.strTeam, 'left')}`}>{predict.strSide}</span>
-            <span className={`w-1/5 h-[50px] flex justify-center items-center ${handleColor(predict.strHeight, '6 ft 4 in (1.94 m)')}`}>{handleHeight(predict.strHeight, 1.85)}</span>
-            <span className={`w-1/5 h-[50px] flex justify-center items-center ${handleColor(predict.dateBorn, '1993-03-05')}`}>{handleAge(predict.dateBorn, 15)}</span>
-            <span className={`w-1/5 h-[50px] flex justify-center items-center ${handleColor(predict.strPosition, 'Centre-Back')}`}>{handlePositionLogo(predict.strPosition)}</span>
-          </li>
+            </div>
+          )
+          }
           )}
         </ul>
       </div>

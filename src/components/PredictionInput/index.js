@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, TextInput} from 'react-native';
 
-const TextInputExample = ({text, onChangeText}) => {
+const TextInputExample = ({text, onChangeText, numberOfPredictions, totalPredictions}) => {
 
   return (
     <div>
@@ -10,7 +10,7 @@ const TextInputExample = ({text, onChangeText}) => {
           style={styles.input}
           onChangeText={onChangeText}
           value={text}
-          placeholder='Player Name'
+          placeholder= {`Predict ${numberOfPredictions + 1} of ${totalPredictions} `}
         />
       </SafeAreaView>
     </div>

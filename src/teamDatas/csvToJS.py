@@ -5,14 +5,14 @@ import json
 import os
  
 # Get the list of all files and directories
-path = "./SuperLig"
+path = "./SerieA"
 dir_list = os.listdir(path)
  
 print("Files and directories in '", path, "' :")
  
 # prints all files
 wholeTeamNames = ''
-with open(f'SuperLig.js', 'w') as jsonfile:
+with open(f'SerieA.js', 'w') as jsonfile:
 
     for file in dir_list:
         print(file[:-4])

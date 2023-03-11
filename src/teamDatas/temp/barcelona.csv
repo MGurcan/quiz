@@ -1,0 +1,23 @@
+LeagueName,TeamName,ShirtNo,Name,BirthDate,Height,Foot,Joined Date,Contract End Date,Market Value,Position,Country
+Laliga,Barcelona,1,Marc-André ter Stegen,"Apr 30, 1992 (30)","1,87m",right,"Jul 1, 2014","Jun 30, 2025",€30.00m,Goalkeeper,Germany
+Laliga,Barcelona,36,Arnau Tenas,"May 30, 2001 (21)","1,85m",right,-,"Jun 30, 2023",€2.00m,Goalkeeper,Spain
+Laliga,Barcelona,23,Jules Kounde,"Nov 12, 1998 (24)","1,80m",right,"Jul 28, 2022","Jun 30, 2027",€60.00m,Centre-Back,France
+Laliga,Barcelona,24,Eric García,"Jan 9, 2001 (22)","1,82m",right,"Jul 1, 2021","Jun 30, 2026",€18.00m,Centre-Back,Spain
+Laliga,Barcelona,17,Marcos Alonso,"Dec 28, 1990 (32)","1,89m",left,"Sep 1, 2022","Jun 30, 2024",€9.00m,Left-Back,Spain
+Laliga,Barcelona,20,Sergi Roberto,"Feb 7, 1992 (31)","1,78m",right,"Jul 1, 2013","Jun 30, 2024",€6.00m,Right-Back,Spain
+Laliga,Barcelona,8,Pedri,"Nov 25, 2002 (20)","1,74m",right,"Sep 2, 2019","Jun 30, 2026",€100.00m,Central Midfield,Spain
+Laliga,Barcelona,21,Frenkie de Jong,"May 12, 1997 (25)","1,81m",right,"Jul 1, 2019","Jun 30, 2026",€50.00m,Central Midfield,Netherlands
+Laliga,Barcelona,32,Pablo Torre,"Apr 3, 2003 (19)","1,73m",right,"Jul 1, 2022","Jun 30, 2026",€3.00m,Central Midfield,Spain
+Laliga,Barcelona,11,Ferran Torres,"Feb 29, 2000 (23)","1,84m",right,"Jan 1, 2022","Jun 30, 2027",€35.00m,Left Winger,Spain
+Laliga,Barcelona,22,Raphinha,"Dec 14, 1996 (26)","1,76m",left,"Jul 13, 2022","Jun 30, 2027",€50.00m,Right Winger,Brazil
+Laliga,Barcelona,13,Iñaki Peña,"Mar 2, 1999 (24)","1,84m",right,"Jan 30, 2022","Jun 30, 2023",€4.00m,Goalkeeper,Spain
+Laliga,Barcelona,4,Ronald Araújo,"Mar 7, 1999 (24)","1,88m",right,"Oct 5, 2020","Jun 30, 2026",€60.00m,Centre-Back,Uruguay
+Laliga,Barcelona,15,Andreas Christensen,"Apr 10, 1996 (26)","1,87m",right,"Jul 4, 2022","Jun 30, 2026",€30.00m,Centre-Back,Denmark
+Laliga,Barcelona,28,Alejandro Balde,"Oct 18, 2003 (19)","1,75m",left,"Jul 1, 2022","Jun 30, 2024",€15.00m,Left-Back,Spain
+Laliga,Barcelona,18,Jordi Alba,"Mar 21, 1989 (33)","1,70m",left,"Jul 1, 2012","Jun 30, 2024",€5.00m,Left-Back,Spain
+Laliga,Barcelona,5,Sergio Busquets,"Jul 16, 1988 (34)","1,89m",right,"Jul 1, 2008","Jun 30, 2023",€5.00m,Defensive Midfield,Spain
+Laliga,Barcelona,6,Gavi,"Aug 5, 2004 (18)","1,73m",right,"Jul 1, 2021","Jun 30, 2026",€90.00m,Central Midfield,Spain
+Laliga,Barcelona,19,Franck Kessié,"Dec 19, 1996 (26)","1,83m",right,"Jul 4, 2022","Jun 30, 2026",€35.00m,Central Midfield,Cote d'Ivoire
+Laliga,Barcelona,10,Ansu Fati,"Oct 31, 2002 (20)","1,78m",right,"Sep 23, 2020","Jun 30, 2027",€50.00m,Left Winger,Spain
+Laliga,Barcelona,7,Ousmane Dembélé,"May 15, 1997 (25)","1,78m",both,"Aug 25, 2017","Jun 30, 2024",€60.00m,Right Winger,France
+Laliga,Barcelona,9,Robert Lewandowski,"Aug 21, 1988 (34)","1,85m",right,"Jul 19, 2022","Jun 30, 2026",€45.00m,Centre-Forward,Poland
