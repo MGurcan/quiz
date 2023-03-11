@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
+      'white' : '#ffffff',
       'blue': '#1fb6ff',
       'purple': '#7e5bef',
       'pink': '#ff49db',
@@ -16,6 +17,10 @@ module.exports = {
       'gray-light': '#d3dce6',
       'green': '#06d6a0',
       'red': '#ef476f',
+      'mor' : '#3d096c',
+      'yesil' : '#3a5a40',
+      'siyah' : '#10002b',
+      'mavi' : '#003566',
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
