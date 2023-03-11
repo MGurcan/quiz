@@ -136,7 +136,7 @@ const SoccerPlayerName = () => {
   }
 
   return(
-    <div className="min-h-[1000px] w-full text-elifSiyah font-serif bg-gradient-to-r from-yesil to-mavi">
+    <div className="min-h-[1000px] w-full text-siyah font-serif bg-gradient-to-r from-yesil to-mavi">
     <Navbar />
     <div className="flex flex-col items-center">
       {/* <AlertItem win={true} player={comparePlayer} predict={`${predictions.length} / 7`} handlePositionLogo={handlePositionLogo}/> */}
@@ -152,7 +152,7 @@ const SoccerPlayerName = () => {
 
             if(alreadyPredicted){
               return (
-                <li className="flex justify-between items-center bg-red p-4 opacity-70 hover:cursor-pointer rounded-md m-3 shadow-md shadow-elifGri relative text-white">
+                <li className="flex justify-between items-center bg-red p-4 opacity-70 hover:cursor-pointer rounded-md m-3 shadow-md shadow-gri relative text-white">
                   <span className="absolute left-0 top-0 flex flex-row justify-center items-center"><MdOutlineDoNotDisturb />Predicted</span>
                   <span className="w-[150px] text-left">#{player.ShirtNo}</span>
                   <span className="w-[150px] text-left">{player.Name}</span>                
@@ -161,7 +161,7 @@ const SoccerPlayerName = () => {
               )
             }
               return(
-                <li onClick={() => handleAddNewPredict(player)} className="flex justify-between items-center bg-elifYesil p-4 hover:opacity-70 hover:cursor-pointer rounded-md m-3 shadow-md shadow-elifGri">
+                <li onClick={() => handleAddNewPredict(player)} className="flex justify-between items-center bg-LightYesil p-4 hover:opacity-70 hover:cursor-pointer rounded-md m-3 shadow-md shadow-elifGri">
                   <span className="w-[150px] text-left">#{player.ShirtNo}</span>
                   <span className="w-[150px] text-left">{player.Name}</span>                
                   <span className="w-[150px] text-right flex justify-end">{teamLogo}</span>
@@ -173,18 +173,18 @@ const SoccerPlayerName = () => {
         <div className={`${predictionBgColor()} flex justify-center items-center w-[200px] h-[80px] text-[24px] rounded-md`}>Predictions: {predictions.length} / 7</div>
         <ul className="m-4">
         <li className="flex flex-row justify-between p-4 m-2 items-center text-center font-black text-white">
-            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-elifKoyuMavi">Shirt No</span>
-            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-elifKoyuMavi">Nationality</span>
-            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-elifKoyuMavi">Height</span>
-            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-elifKoyuMavi">Age</span>
-            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-elifKoyuMavi">League</span>
-            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-elifKoyuMavi">Position</span>
-            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-elifKoyuMavi">Value</span>
+            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Shirt No</span>
+            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Nationality</span>
+            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Height</span>
+            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Age</span>
+            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">League</span>
+            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Position</span>
+            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Value</span>
           </li>
           {predictions.map((predict, index) => 
           {
           return(
-            <div className="border-2 border-elifGri rounded-md p-2 m-2 bg-elifKoyuMavi text-white font-black">
+            <div className="border-2 border-gri rounded-md p-2 m-2 bg-elifKoyuMavi text-white font-black">
             <h2 className="w-full text-center font-black">{predict.Name}</h2>
         {index === predictions.length-1 ? 
           <li>
