@@ -74,7 +74,7 @@ const [index, setIndex] = useState(0);
         <>
         <div className='w-full flex flex-row justify-around items-center px-16'>
             <div className='w-[250px] text-[24px] text-gray-light flex flex-col justify-center items-center'> 
-                <img className='rounded-md w-[250px]' src='https://i.bundesliga.com/player/dfl-obj-0001wu-dfl-clu-000009-dfl-sea-0001k6.png'/>
+                <img className='rounded-md w-[250px]' src='https://assets.laliga.com/squad/2022/t178/p490541/256x278/p490541_t178_2022_1_001_000.png'/>
             </div>
             <div className='w-[180px] text-[24px] text-gray-light flex flex-col justify-center items-center text-center'> 
                 <strong >{win ? 'You Won!' : 'You Lost!'}</strong>

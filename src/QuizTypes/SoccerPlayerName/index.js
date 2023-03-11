@@ -114,7 +114,7 @@ const SoccerPlayerName = () => {
     return <div className="flex flex-row justify-center items-center"> {realAge} {logo} </div>
   }
   const handlePositionLogo = (position, size = 20) => {
-    if(position.toLowerCase().includes('forward')){
+    if(position.toLowerCase().includes('forward') || position.toLowerCase().includes('striker')){
       return <div className="flex flex-col justfiy-center items-center text-[12px]"><IoMdFootball size={size}/>Forward</div>;
     }
     else if(position.toLowerCase().includes('midfield') || position.toLowerCase().includes('winger')){
@@ -136,7 +136,7 @@ const SoccerPlayerName = () => {
   }
 
   const handlePositionColor = (actualPosition, truePosition) => {
-    if(actualPosition.toLowerCase().includes('forward') && truePosition.toLowerCase().includes('forward'))
+    if((actualPosition.toLowerCase().includes('forward') || actualPosition.toLowerCase().includes('striker')) && (truePosition.toLowerCase().includes('forward') || truePosition.toLowerCase().includes('striker')))
       return ' bg-green';
     else if((actualPosition.toLowerCase().includes('midfield') || actualPosition.toLowerCase().includes('winger')) && (truePosition.toLowerCase().includes('midfield') || truePosition.toLowerCase().includes('winger')))
       return ' bg-green';

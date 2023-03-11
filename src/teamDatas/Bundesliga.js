@@ -570,7 +570,7 @@ export const BundesligaTeamLogos =
 "RB Leipzig" : "https://www.thesportsdb.com/images/media/team/badge/zjgapo1594244951.png", 
 "FC Schalke 04" : "https://www.thesportsdb.com/images/media/team/badge/hnci291621593978.png", 
 "VFB Stuttgart" : "https://www.thesportsdb.com/images/media/team/badge/yppyux1473454085.png", 
-"FC Union Berlinn" : "https://www.thesportsdb.com/images/media/team/badge/q0o5001599679795.png", 
+"FC Union Berlin" : "https://www.thesportsdb.com/images/media/team/badge/q0o5001599679795.png", 
 "SV Werder Bremen" : "https://www.thesportsdb.com/images/media/team/badge/uurwqy1473453408.png", 
 "VFL Wolfsburg" : "https://www.thesportsdb.com/images/media/team/badge/07kp421599680274.png", 
 };
