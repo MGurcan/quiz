@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PredictionInput from "../../components/PredictionInput";
 import { BsArrowDown, BsArrowUp, BsArrowsMove } from 'react-icons/bs';
 import { IoMdFootball } from 'react-icons/io';
@@ -48,10 +48,19 @@ const SoccerPlayerName = () => {
   animation: ${fadeDuration+6000}ms ${fadeInAnimation};
   `;
 
+  const[win, setWin] = useState(false);
+  const [quizFinished, setQuizFinished] = useState(false);
   const handleAddNewPredict = (e) => {
-    if(e === comparePlayer)
-      alert('You')
-    setPredictions([...predictions, e]);
+    if(quizFinished) return 
+    setPredictions([e, ...predictions]);
+    if(e === comparePlayer){
+      setWin(true);
+      setQuizFinished(true);
+    }
+    else if(predictions.length === 6){
+      setWin(false);
+      setQuizFinished(true);
+    }  
   }
   
 
@@ -103,18 +112,18 @@ const SoccerPlayerName = () => {
     const logo = realAge == realCompareAge ? null : (realCompareAge > parseInt(realAge) ? <BsArrowUp /> : <BsArrowDown />);
     return <div className="flex flex-row justify-center items-center"> {realAge} {logo} </div>
   }
-  const handlePositionLogo = (position) => {
+  const handlePositionLogo = (position, size = 20) => {
     if(position.toLowerCase().includes('forward')){
-      return <div className="flex flex-col justfiy-center items-center text-[12px]"><IoMdFootball size={20}/>Forward</div>;
+      return <div className="flex flex-col justfiy-center items-center text-[12px]"><IoMdFootball size={size}/>Forward</div>;
     }
     else if(position.toLowerCase().includes('midfield') || position.toLowerCase().includes('winger')){
-      return <div className="flex flex-col justfiy-center items-center text-[12px]"><BsArrowsMove size={20}/>Midfield</div>;
+      return <div className="flex flex-col justfiy-center items-center text-[12px]"><BsArrowsMove size={size}/>Midfield</div>;
     }
     else if(position.toLowerCase().includes('keeper')){
-      return <div className="flex flex-col justfiy-center items-center text-[12px]"><GiGoalKeeper size={20}/>Goalkeeper</div>;
+      return <div className="flex flex-col justfiy-center items-center text-[12px]"><GiGoalKeeper size={size}/>Goalkeeper</div>;
     }
     else if(position.toLowerCase().includes('back')){
-      return <div className="flex flex-col justfiy-center items-center text-[12px]"><GiCheckedShield size={20}/>Deffensive</div>;
+      return <div className="flex flex-col justfiy-center items-center text-[12px]"><GiCheckedShield size={size}/>Deffensive</div>;
     }
     else{
       return null;
@@ -138,8 +147,8 @@ const SoccerPlayerName = () => {
   return(
     <div className="min-h-[1000px] w-full text-elifSiyah font-serif bg-gradient-to-r from-yesil to-mavi">
     <Navbar />
-    <div className="flex flex-col items-center">
-      {/* <AlertItem win={true} player={comparePlayer} predict={`${predictions.length} / 7`} handlePositionLogo={handlePositionLogo}/> */}
+    <AlertItem quizFinished={quizFinished} win={win} player={comparePlayer} predict={`${predictions.length} / 7`} handlePositionLogo={handlePositionLogo}/>
+    <div className={`flex flex-col items-center ${quizFinished ? 'blur-md' : ''}`}>
       <div className='w-[500px] flex flex-col items-center'>
         <div className="w-full">
           <PredictionInput text={text} onChangeText={onChangeText} numberOfPredictions={predictions.length} totalPredictions={7} className='m-2'/>
@@ -186,7 +195,7 @@ const SoccerPlayerName = () => {
           return(
             <div className="border-2 border-elifGri rounded-md p-2 m-2 bg-elifKoyuMavi text-white font-black">
             <h2 className="w-full text-center font-black">{predict.Name}</h2>
-        {index === predictions.length-1 ? 
+        {index === 0 ? 
           <li>
             <TransitionGroup className="w-[650px] flex flex-row justify-between m-2 items-center text-center">
             <CSSTransition timeout={fadeDuration} classNames="fade">

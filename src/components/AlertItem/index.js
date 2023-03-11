@@ -1,35 +1,34 @@
 import React, { useState } from 'react';
 import { LeagueLogos } from '../../teamDatas/Big6Teams';
+import { Big6TeamsLogos } from '../../teamDatas/Big6Teams';
 
-const AlertItem = ({win, player, predict, handlePositionLogo}) => {
-  const [show, setShow] = useState(true);
+const AlertItem = ({win, player, predict, handlePositionLogo, quizFinished}) => {
+
 const [index, setIndex] = useState(0);
-  function toggleShow() {
-    setShow(!show);
-  }
+
 
   const spans = [
-    <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>#{player.ShirtNo}</span>,
-    <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{player.Country}</span>,
-    <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{player.Height}</span>,
-    <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{player.BirthDate}</span>,
-    <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{<img src={LeagueLogos[player.LeagueName]} className='w-[50px] h-[50px]'/>}</span>,
-    <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{handlePositionLogo(player.Position)}</span>,
-    <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{player.MarketValue}</span>,
-    <h1>{player.Name}</h1>,
+    <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>#{player.ShirtNo}</span>,
+    <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>{player.Country}</span>,
+    <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>{player.Height}</span>,
+    <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px] text-center`}>{player.BirthDate}</span>,
+    <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>{<img src={LeagueLogos[player.LeagueName]} className='w-[100px] h-[100px]'/>}</span>,
+    <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>{handlePositionLogo(player.Position, 40)}</span>,
+    <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>{player.MarketValue}</span>,
   ]
 
-  const [spanContent, setSpanContent] = useState(<h1>"Initial Content"</h1>);
+  const [spanContent, setSpanContent] = useState();
   const [showAllInfos, setShowAllInfos] = useState(false);
-    const [end, setEnd] = useState(false); 
+  const [end, setEnd] = useState(false); 
+
   React.useEffect(() => {
-    if (show && !end) {
+    if (quizFinished && !end) {
       setTimeout(() => {
         setIndex((index + 1) % 8);
         setSpanContent(spans[index])
       }, 1500); // change content after 1 second (1000ms)
     }
-  }, [show, index]);
+  }, [quizFinished, index]);
 
   React.useEffect(()=> {
     if(index === 7){
@@ -63,30 +62,42 @@ const [index, setIndex] = useState(0);
   ); */
   return (
     <>
-      <button className='w-[300px] h-[400px] bg-red' onClick={toggleShow}>Show Alert</button>
-      {show && (
-        <div className={`alert w-[800px] h-[400px] bg-acikMavi absolute top-1/4 z-10 flex flex-col justify-center items-center`}>
-            
-        <strong>{win ? 'You Have Won' : 'You Lost'}</strong>
-        <strong>{predict}</strong>
-            <div>
+      {quizFinished && (
+        <>
+        
+
+    <div className={`alert w-[800px] h-[400px] bg-gradient-to-r ${win ? 'from-green' : 'from-red'} to-siyah absolute left-1/4 top-1/4 z-10 flex flex-col justify-center items-center shadow-md rounded-xl`}>
+    {!showAllInfos ? 
+        <div >
             {spanContent}
+        </div> :
+        <>
+        <div className='w-full flex flex-row justify-around items-center px-16'>
+            <div className='w-[180px] text-[24px] text-gray-light flex flex-col justify-center items-center'> 
+                <img className='rounded-md w-[160px]' src='https://www.afcb.co.uk/media/204373/dom-solanke.jpg?anchor=center&mode=crop&width=900&height=1350&quality=80'/>
             </div>
-        {showAllInfos && 
+            <div className='w-[180px] text-[24px] text-gray-light flex flex-col justify-center items-center text-center'> 
+                <strong >{win ? 'You Won!' : 'You Lost!'}</strong>
+                <strong>{predict}</strong>
+                <strong>{player.Name}</strong>
+            </div>
+        </div>
+
+
             <div>
                 <li className="w-[650px] flex flex-row justify-between m-2 items-center text-center">
-            <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{player.ShirtNo}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{player.Country}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{player.Height}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{player.BirthDate}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{<img src={LeagueLogos[player.LeagueName]} className='w-[50px] h-[50px]'/>}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{player.Position}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{player.MarketValue}</span>
+            <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>#{player.ShirtNo}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{player.Country}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{<img src={LeagueLogos[player.LeagueName]} className='w-[50px] h-[50px]'/>}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{<img src={Big6TeamsLogos[player.TeamName]} className='w-[50px] h-[50px]'/>}</span>
                 </li>
             </div>
+        
+        </>
         }
-
-      </div>
+    </div>
+        
+      </>
       
       )}
     </>
