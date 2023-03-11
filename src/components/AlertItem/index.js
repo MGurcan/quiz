@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { LeagueLogos } from '../../teamDatas/Big6Teams';
 import { Big6TeamsLogos } from '../../teamDatas/Big6Teams';
-
+import {VscRefresh} from 'react-icons/vsc'
 const AlertItem = ({win, player, predict, handlePositionLogo, quizFinished}) => {
 
 const [index, setIndex] = useState(0);
@@ -73,8 +73,8 @@ const [index, setIndex] = useState(0);
         </div> :
         <>
         <div className='w-full flex flex-row justify-around items-center px-16'>
-            <div className='w-[180px] text-[24px] text-gray-light flex flex-col justify-center items-center'> 
-                <img className='rounded-md w-[160px]' src='https://www.afcb.co.uk/media/204373/dom-solanke.jpg?anchor=center&mode=crop&width=900&height=1350&quality=80'/>
+            <div className='w-[250px] text-[24px] text-gray-light flex flex-col justify-center items-center'> 
+                <img className='rounded-md w-[250px]' src='https://i.bundesliga.com/player/dfl-obj-0001wu-dfl-clu-000009-dfl-sea-0001k6.png'/>
             </div>
             <div className='w-[180px] text-[24px] text-gray-light flex flex-col justify-center items-center text-center'> 
                 <strong >{win ? 'You Won!' : 'You Lost!'}</strong>
@@ -92,10 +92,11 @@ const [index, setIndex] = useState(0);
               <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{<img src={Big6TeamsLogos[player.TeamName]} className='w-[50px] h-[50px]'/>}</span>
                 </li>
             </div>
-        
+            <button className='absolute right-4 top-4' onClick={() => window.location.reload(false)}><VscRefresh size={30} color='white'/></button>
         </>
         }
     </div>
+        
         
       </>
       

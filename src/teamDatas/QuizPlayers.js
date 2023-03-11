@@ -1,8 +1,7 @@
 import React from "react";
 
-import { PremierLeagueTeams } from "./PremierLeague";
+import { schalke } from "./Bundesliga";
 
-const quizPlayer = PremierLeagueTeams[12];
-console.log(quizPlayer);
+const quizPlayer = schalke[15];
 
 export default quizPlayer;

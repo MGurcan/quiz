@@ -104,6 +104,7 @@ const SoccerPlayerName = () => {
   }
 
   const getAgeFromBirthDate = (birthDate) => {
+    console.log(parseInt(birthDate.substring(birthDate.indexOf('(')+1, birthDate.indexOf('(')+3)))
     return parseInt(birthDate.substring(birthDate.indexOf('(')+1, birthDate.indexOf('(')+3));
   }
   const handleAge = (age, compareAge) => {
@@ -132,6 +133,18 @@ const SoccerPlayerName = () => {
 
   const handleColor = (actualValue, trueValue) => {
     return actualValue === trueValue ? ' bg-green ' : ' bg-red ';
+  }
+
+  const handlePositionColor = (actualPosition, truePosition) => {
+    if(actualPosition.toLowerCase().includes('forward') && truePosition.toLowerCase().includes('forward'))
+      return ' bg-green';
+    else if((actualPosition.toLowerCase().includes('midfield') || actualPosition.toLowerCase().includes('winger')) && (truePosition.toLowerCase().includes('midfield') || truePosition.toLowerCase().includes('winger')))
+      return ' bg-green';
+    else if(actualPosition.toLowerCase().includes('keeper') && truePosition.toLowerCase().includes('keeper'))
+      return ' bg-green';
+    else if(actualPosition.toLowerCase().includes('back') && truePosition.toLowerCase().includes('back'))
+      return ' bg-green';
+    return ' bg-red';
   }
 
   const predictionBgColor = () => {
@@ -224,7 +237,7 @@ const SoccerPlayerName = () => {
           
           
             <CSSTransition timeout={fadeDuration} classNames="fade">
-              <FadeInDiv5><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Position, comparePlayer.Position)}`}>{handlePositionLogo(predict.Position)}</span></FadeInDiv5>
+              <FadeInDiv5><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handlePositionColor(predict.Position, comparePlayer.Position)}`}>{handlePositionLogo(predict.Position)}</span></FadeInDiv5>
             </CSSTransition>
           
           
@@ -238,14 +251,12 @@ const SoccerPlayerName = () => {
               <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.ShirtNo, comparePlayer.ShirtNo)}`}>{handleShirtNo(predict.ShirtNo, comparePlayer.ShirtNo)}</span>
               <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Country, comparePlayer.Country)}`}>{predict.Country}</span>
               <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Height, comparePlayer.Height)}`}>{handleHeight(predict.Height, comparePlayer.Height)}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.BirthDate, comparePlayer.BirthDate)}`}>{handleAge(predict.BirthDate, comparePlayer.BirthDate)}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(getAgeFromBirthDate(predict.BirthDate), getAgeFromBirthDate(comparePlayer.BirthDate))}`}>{handleAge(predict.BirthDate, comparePlayer.BirthDate)}</span>
               <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.LeagueName, comparePlayer.LeagueName)}`}>{<img src={LeagueLogos[predict.LeagueName]} className='w-[50px] h-[50px]'/>}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Position, comparePlayer.Position)}`}>{handlePositionLogo(predict.Position)}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handlePositionColor(predict.Position, comparePlayer.Position)}`}>{handlePositionLogo(predict.Position)}</span>
               <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.MarketValue, comparePlayer.MarketValue)}`}>{handleValue(predict.MarketValue, comparePlayer.MarketValue)}</span>
           </li>
       }
-            
-
             </div>
           )
           }
