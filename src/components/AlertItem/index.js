@@ -76,7 +76,7 @@ const [index, setIndex] = useState(0);
         <>
         <div className='w-full flex flex-row justify-around items-center px-16'>
             <div className='w-[250px] text-[24px] text-gray-light flex flex-col justify-center items-center'> 
-                <img className='rounded-md w-[250px]' src={player.photo}/>
+                <img className='rounded-md max-w-[250px] max-h-[250px]' src={player.photo}/>
             </div>
             <div className='w-[180px] text-[24px] text-gray-light flex flex-col justify-center items-center text-center'> 
                 <strong >{win ? 'You Won!' : 'You Lost!'}</strong>

@@ -25,9 +25,14 @@ const SoccerPlayerName = ({ gameType }) => {
   const [predictions, setPredictions] = React.useState([]);
 
   const [comparePlayer, setcomparePlayer] = useState(gameType === 'big5Teams' ? quizPlayerBig5Leage : quizPlayerSuperLig);
-
+  const[win, setWin] = useState(false);
+  const [quizFinished, setQuizFinished] = useState(false);
   useEffect(() => {
     setcomparePlayer(gameType === 'big5Teams' ? quizPlayerBig5Leage : quizPlayerSuperLig)
+    setPredictions([])
+    setWin(false)
+    setQuizFinished(false)
+
   }, [gameType])
   const fadeDuration = 500; // duration of fade animation in milliseconds
 
@@ -55,8 +60,7 @@ const SoccerPlayerName = ({ gameType }) => {
   animation: ${fadeDuration+6000}ms ${fadeInAnimation};
   `;
 
-  const[win, setWin] = useState(false);
-  const [quizFinished, setQuizFinished] = useState(false);
+
   const [animationPrediction, setAnimationPrediction] = useState(false);
 
   const handleAddNewPredict = (e) => {

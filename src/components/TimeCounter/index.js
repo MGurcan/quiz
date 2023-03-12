@@ -33,8 +33,8 @@ function TimeCounter() {
     <div className='border border-gray-light w-[300px] flex flex-col justify-center items-center p-3 text-gray-light'>
       <h1>Until New Player</h1>
       <div className='flex flex-row p-2'>
-        <p className='p-2'>{60-minutes} Minutes</p>
-        <p className='p-2'>{60-seconds} Seconds</p>
+        <p className='p-2'>{59-minutes} Minutes</p>
+        <p className='p-2'>{59-seconds} Seconds</p>
       </div>
     </div>
   );
