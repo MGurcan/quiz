@@ -13,6 +13,7 @@ import { LeagueLogos } from "../../teamDatas/Big6Teams";
 import {MdOutlineDoNotDisturb} from 'react-icons/md';
 import AlertItem from "../../components/AlertItem";
 import { Navbar } from "../../components/Navbar";
+import { CountryFlags } from "../../teamDatas/Country";
 
 const SoccerPlayerName = () => {
   
@@ -51,6 +52,7 @@ const SoccerPlayerName = () => {
   const[win, setWin] = useState(false);
   const [quizFinished, setQuizFinished] = useState(false);
   const handleAddNewPredict = (e) => {
+    onChangeText('');
     if(quizFinished) return 
     setPredictions([e, ...predictions]);
     if(e === comparePlayer){
@@ -194,15 +196,18 @@ const SoccerPlayerName = () => {
         </div>
         <div className={`${predictionBgColor()} flex justify-center items-center w-[200px] h-[80px] text-[24px] rounded-md`}>Predictions: {predictions.length} / 7</div>
         <ul className="m-4">
-        <li className="flex flex-row justify-between p-4 m-2 items-center text-center font-black text-white">
-            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Shirt No</span>
-            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Nationality</span>
-            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Height</span>
-            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Age</span>
-            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">League</span>
-            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Position</span>
-            <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Value</span>
-          </li>
+          {predictions.length > 0 ? 
+             <li className="flex flex-row justify-between p-4 m-2 items-center text-center font-black text-white">
+             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Shirt No</span>
+             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Nationality</span>
+             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Height</span>
+             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Age</span>
+             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">League</span>
+             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Position</span>
+             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Value</span>
+           </li> : ''  
+        }
+       
           {predictions.map((predict, index) => 
           {
           return(
@@ -217,7 +222,7 @@ const SoccerPlayerName = () => {
           
           
             <CSSTransition timeout={fadeDuration} classNames="fade">
-              <FadeInDiv1><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Country, comparePlayer.Country)}`}>{predict.Country}</span></FadeInDiv1>
+              <FadeInDiv1><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Country, comparePlayer.Country)}`}>{<img src={CountryFlags[predict.Country]} alt={predict.Country} className='w-[60px] h-[40px]'/>}</span></FadeInDiv1>
             </CSSTransition>
           
           
@@ -249,7 +254,7 @@ const SoccerPlayerName = () => {
           : 
           <li className="w-[650px] flex flex-row justify-between m-2 items-center text-center">
               <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.ShirtNo, comparePlayer.ShirtNo)}`}>{handleShirtNo(predict.ShirtNo, comparePlayer.ShirtNo)}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Country, comparePlayer.Country)}`}>{predict.Country}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Country, comparePlayer.Country)}`}>{<img src={CountryFlags[predict.Country]} alt={predict.Country} className='w-[60px] h-[40px]'/>}</span>
               <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Height, comparePlayer.Height)}`}>{handleHeight(predict.Height, comparePlayer.Height)}</span>
               <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(getAgeFromBirthDate(predict.BirthDate), getAgeFromBirthDate(comparePlayer.BirthDate))}`}>{handleAge(predict.BirthDate, comparePlayer.BirthDate)}</span>
               <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.LeagueName, comparePlayer.LeagueName)}`}>{<img src={LeagueLogos[predict.LeagueName]} className='w-[50px] h-[50px]'/>}</span>

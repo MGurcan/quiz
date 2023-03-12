@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { LeagueLogos } from '../../teamDatas/Big6Teams';
 import { Big6TeamsLogos } from '../../teamDatas/Big6Teams';
 import {VscRefresh} from 'react-icons/vsc'
+import { CountryFlags } from '../../teamDatas/Country';
+
 const AlertItem = ({win, player, predict, handlePositionLogo, quizFinished}) => {
 
 const [index, setIndex] = useState(0);
@@ -9,7 +11,7 @@ const [index, setIndex] = useState(0);
 
   const spans = [
     <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>#{player.ShirtNo}</span>,
-    <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>{player.Country}</span>,
+    <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>{<img src={CountryFlags[player.Country]} alt={player.Country} className='w-[60px] h-[40px]'/>}</span>,
     <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>{player.Height}</span>,
     <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px] text-center`}>{player.BirthDate}</span>,
     <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>{<img src={LeagueLogos[player.LeagueName]} className='w-[100px] h-[100px]'/>}</span>,
@@ -87,7 +89,7 @@ const [index, setIndex] = useState(0);
             <div>
                 <li className="w-[650px] flex flex-row justify-between m-2 items-center text-center">
             <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>#{player.ShirtNo}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{player.Country}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{<img src={CountryFlags[player.Country]} alt={player.Country} className='w-[60px] h-[40px]'/>}</span>
               <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{<img src={LeagueLogos[player.LeagueName]} className='w-[50px] h-[50px]'/>}</span>
               <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{<img src={Big6TeamsLogos[player.TeamName]} className='w-[50px] h-[50px]'/>}</span>
                 </li>
