@@ -14,6 +14,7 @@ import {MdOutlineDoNotDisturb} from 'react-icons/md';
 import AlertItem from "../../components/AlertItem";
 import { Navbar } from "../../components/Navbar";
 import { CountryFlags } from "../../teamDatas/Country";
+import { LatinizeLetters } from "../../teamDatas/LatiniseLetters";
 
 const SoccerPlayerName = () => {
   
@@ -67,13 +68,17 @@ const SoccerPlayerName = () => {
       setQuizFinished(true);
     }  
   }
-  
 
   useEffect(() => {
     if(text.length > 0)
       setAnimationPrediction(false)
     if(text.length > 2){
-      setPlayers(Big6Teams.filter((player) => player.Name.toLowerCase().includes(text.toLowerCase())));
+      setPlayers(Big6Teams.filter((player) => {
+        let latinizedName = player.Name.toLowerCase();
+        for (var interestingLetter in LatinizeLetters)
+          latinizedName = latinizedName.replaceAll(interestingLetter, LatinizeLetters[interestingLetter]);
+        return ( latinizedName.toLowerCase().includes(text.toLowerCase()));
+      }))
     }
     else
       setPlayers([])
@@ -106,7 +111,6 @@ const SoccerPlayerName = () => {
       
       logo = compareVal === val ? null : (compareVal > val ? <BsArrowUp /> : <BsArrowDown />);
     }
-    
     return <div className="flex flex-row justify-center items-center"> {value} {logo} </div>
   }
 

@@ -43,7 +43,7 @@ export const CountryFlags = {
  "Croatia" : "https://www.worldometers.info//img/flags/small/tn_hr-flag.gif",
  "Cuba" : "https://www.worldometers.info//img/flags/small/tn_cu-flag.gif",
  "Cyprus" : "https://www.worldometers.info//img/flags/small/tn_cy-flag.gif",
- "Czechia" : "https://www.worldometers.info//img/flags/small/tn_ez-flag.gif",
+ "Czech Republic" : "https://www.worldometers.info//img/flags/small/tn_ez-flag.gif",
  "Denmark" : "https://www.worldometers.info//img/flags/small/tn_da-flag.gif",
  "Djibouti" : "https://www.worldometers.info//img/flags/small/tn_dj-flag.gif",
  "Dominica" : "https://www.worldometers.info//img/flags/small/tn_do-flag.gif",
