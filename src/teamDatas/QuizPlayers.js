@@ -1,7 +1,7 @@
 import React from "react";
 
-import { schalke } from "./Bundesliga";
+import { barcelona } from "./LaLiga";
 
-const quizPlayer = schalke[15];
+const quizPlayer = barcelona[6];
 
 export default quizPlayer;

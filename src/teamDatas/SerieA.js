@@ -604,7 +604,7 @@ export const SerieATeamLogos =
 { 
 "Atalanta BC" : "https://www.thesportsdb.com/images/media/team/badge/lrvxg71534873930.png", 
 "Bologna FC 1909" : "https://www.thesportsdb.com/images/media/team/badge/2qi1u31655592366.png", 
-"Cremonese" : "https://www.thesportsdb.com/images/media/team/badge/6ng2vy1579708291.png", 
+"US Cremonese" : "https://www.thesportsdb.com/images/media/team/badge/6ng2vy1579708291.png", 
 "FC Empoli" : "https://www.thesportsdb.com/images/media/team/badge/c1ie6b1622561483.png", 
 "ACF Fiorentina" : "https://www.thesportsdb.com/images/media/team/badge/hc8nhu1656098030.png", 
 "Inter Milan" : "https://www.thesportsdb.com/images/media/team/badge/ryhu6d1617113103.png", 
