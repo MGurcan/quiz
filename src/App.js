@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route exact path="/" element={  <SoccerPlayerName />} />
+        <Route exact path="/" element={  <SoccerPlayerName gameType={'big5Teams'} />} />
         <Route exact path="/big5Teams" element={  <SoccerPlayerName gameType={'big5Teams'}/>} />
         <Route exact path="/superLig" element={  <SoccerPlayerName gameType={'superLig'}/>} />
         <Route exact path="/page" element={  <Navbar /> } />
