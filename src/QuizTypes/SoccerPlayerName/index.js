@@ -3,7 +3,8 @@ import PredictionInput from "../../components/PredictionInput";
 import { BsArrowDown, BsArrowUp, BsArrowsMove } from 'react-icons/bs';
 import { IoMdFootball } from 'react-icons/io';
 import { GiGoalKeeper, GiCheckedShield } from 'react-icons/gi';
-import { Big6Teams } from "../../teamDatas/Big6Teams";
+import { Big5Teams } from "../../teamDatas/Big6Teams";
+import { SuperLigTeams } from "../../teamDatas/SuperLig";
 import quizPlayer from "../../teamDatas/QuizPlayers";
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { fadeIn } from 'react-animations';
@@ -16,14 +17,14 @@ import { Navbar } from "../../components/Navbar";
 import { CountryFlags } from "../../teamDatas/Country";
 import { LatinizeLetters } from "../../teamDatas/LatiniseLetters";
 
-const SoccerPlayerName = () => {
+const SoccerPlayerName = ({ gameType }) => {
   
   const [text, onChangeText] = React.useState('');
   const [players, setPlayers] = React.useState(null);
   const [predictions, setPredictions] = React.useState([]);
 
   const comparePlayer = quizPlayer;
-  
+
   const fadeDuration = 500; // duration of fade animation in milliseconds
 
   const fadeInAnimation = keyframes`${fadeIn}`;
@@ -69,11 +70,15 @@ const SoccerPlayerName = () => {
     }  
   }
 
+  const [allPlayers, setAllPlayers] = useState([])
+  useEffect(() => {
+    gameType === 'big5Teams' ? setAllPlayers(Big5Teams) : setAllPlayers(SuperLigTeams)
+  }, [gameType])
   useEffect(() => {
     if(text.length > 0)
       setAnimationPrediction(false)
     if(text.length > 2){
-      setPlayers(Big6Teams.filter((player) => {
+      setPlayers(allPlayers.filter((player) => {
         let latinizedName = player.Name.toLowerCase();
         for (var interestingLetter in LatinizeLetters)
           latinizedName = latinizedName.replaceAll(interestingLetter, LatinizeLetters[interestingLetter]);
@@ -171,6 +176,16 @@ const SoccerPlayerName = () => {
     <div className="min-h-[1000px] w-full text-siyah font-serif bg-gradient-to-r from-yesil to-mavi">
     <Navbar />
     <AlertItem quizFinished={quizFinished} win={win} player={comparePlayer} predict={`${predictions.length} / 7`} handlePositionLogo={handlePositionLogo}/>
+    <div className="w-full h-[200px] flex flex-row justify-around">
+      {gameType === 'superLig' ? <img src={LeagueLogos['Süper Lig']} alt='Süper Lig'/> : 
+      <div className="m-4 p-4 flex flex-row">
+        <img className="w-[100px] h-[100px] m-2" src={LeagueLogos.Bundesliga} alt='Bundesliga'/>
+        <img className="w-[100px] h-[100px] m-2" src={LeagueLogos.Laliga} alt='Laliga'/>
+        <img className="w-[100px] h-[100px] m-2" src={LeagueLogos.Ligue1} alt='Ligue1'/>
+        <img className="w-[100px] h-[100px] m-2" src={LeagueLogos["Premier League"]} alt='Premier League'/>
+        <img className="w-[100px] h-[100px] m-2" src={LeagueLogos["Serie A"]} alt='Serie A'/>
+      </div>}
+    </div>
     <div className={`flex flex-col items-center ${quizFinished ? 'blur-md' : ''}`}>
       <div className='w-[500px] flex flex-col items-center'>
         <div className="w-full">
