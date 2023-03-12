@@ -11,7 +11,7 @@ const [index, setIndex] = useState(0);
 
   const spans = [
     <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>#{player.ShirtNo}</span>,
-    <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>{<img src={CountryFlags[player.Country]} alt={player.Country} className='w-[60px] h-[40px]'/>}</span>,
+    <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>{<img src={CountryFlags[player.Country]} alt={player.Country} className='w-[120px] h-[80px]'/>}</span>,
     <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>{player.Height}</span>,
     <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px] text-center`}>{player.BirthDate}</span>,
     <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>{<img src={LeagueLogos[player.LeagueName]} className='w-[100px] h-[100px]'/>}</span>,

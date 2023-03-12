@@ -51,8 +51,11 @@ const SoccerPlayerName = () => {
 
   const[win, setWin] = useState(false);
   const [quizFinished, setQuizFinished] = useState(false);
+  const [animationPrediction, setAnimationPrediction] = useState(false);
+
   const handleAddNewPredict = (e) => {
     onChangeText('');
+    setAnimationPrediction(true);
     if(quizFinished) return 
     setPredictions([e, ...predictions]);
     if(e === comparePlayer){
@@ -67,6 +70,8 @@ const SoccerPlayerName = () => {
   
 
   useEffect(() => {
+    if(text.length > 0)
+      setAnimationPrediction(false)
     if(text.length > 2){
       setPlayers(Big6Teams.filter((player) => player.Name.toLowerCase().includes(text.toLowerCase())));
     }
@@ -106,7 +111,6 @@ const SoccerPlayerName = () => {
   }
 
   const getAgeFromBirthDate = (birthDate) => {
-    console.log(parseInt(birthDate.substring(birthDate.indexOf('(')+1, birthDate.indexOf('(')+3)))
     return parseInt(birthDate.substring(birthDate.indexOf('(')+1, birthDate.indexOf('(')+3));
   }
   const handleAge = (age, compareAge) => {
@@ -213,7 +217,7 @@ const SoccerPlayerName = () => {
           return(
             <div className="border-2 border-gri rounded-md p-2 m-2 bg-elifKoyuMavi text-white font-black">
             <h2 className="w-full text-center font-black">{predict.Name}</h2>
-        {index === 0 ? 
+        {index === 0 && animationPrediction ? 
           <li>
             <TransitionGroup className="w-[650px] flex flex-row justify-between m-2 items-center text-center">
             <CSSTransition timeout={fadeDuration} classNames="fade">
