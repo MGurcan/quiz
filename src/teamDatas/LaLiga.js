@@ -551,7 +551,7 @@ export const LaligaTeamLogos =
 "Real Madrid" : "https://www.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png", 
 "Sevilla FC" : "https://www.thesportsdb.com/images/media/team/badge/vpsqqx1473502977.png", 
 "Real Sociedad" : "https://www.thesportsdb.com/images/media/team/badge/vptvpr1473502986.png", 
-"Valencia" : "https://www.thesportsdb.com/images/media/team/badge/dm8l6o1655594864.png", 
+"Valencia CF" : "https://www.thesportsdb.com/images/media/team/badge/dm8l6o1655594864.png", 
 "Real Valladolid CF" : "https://www.thesportsdb.com/images/media/team/badge/zd5oxx1655760625.png", 
 "Rayo Vallecano" : "https://www.thesportsdb.com/images/media/team/badge/nzhu941655595465.png", 
 "Villarreal FC" : "https://www.thesportsdb.com/images/media/team/badge/vrypqy1473503073.png", 
