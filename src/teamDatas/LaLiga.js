@@ -544,7 +544,7 @@ export const LaligaTeamLogos =
 "Celta de Vigo" : "https://www.thesportsdb.com/images/media/team/badge/aj62u51655594990.png", 
 "Elche CF" : "https://www.thesportsdb.com/images/media/team/badge/e4vaw51655594332.png", 
 "RCD Espanyol" : "https://www.thesportsdb.com/images/media/team/badge/2rwt581639408673.png", 
-"Getafe FC" : "https://www.thesportsdb.com/images/media/team/badge/eyh2891655594452.png", 
+"Getafe CF" : "https://www.thesportsdb.com/images/media/team/badge/eyh2891655594452.png", 
 "Girona FC" : "https://www.thesportsdb.com/images/media/team/badge/kfu7zu1659897499.png", 
 "RCD Mallorca" : "https://www.thesportsdb.com/images/media/team/badge/ssptsx1473503730.png", 
 "CA Osasuna" : "https://www.thesportsdb.com/images/media/team/badge/rvspvt1473502960.png", 
