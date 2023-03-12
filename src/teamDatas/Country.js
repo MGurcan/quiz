@@ -183,7 +183,7 @@ export const CountryFlags = {
  "Tuvalu" : "https://www.worldometers.info//img/flags/small/tn_tv-flag.gif",
  "U.A.E." : "https://www.worldometers.info//img/flags/small/tn_ae-flag.gif",
  "England" : "https://www.worldometers.info//img/flags/small/tn_uk-flag.gif",
- "U.S." : "https://www.worldometers.info//img/flags/small/tn_us-flag.gif",
+ "United States" : "https://www.worldometers.info//img/flags/small/tn_us-flag.gif",
  "Uganda" : "https://www.worldometers.info//img/flags/small/tn_ug-flag.gif",
  "Ukraine" : "https://www.worldometers.info//img/flags/small/tn_up-flag.gif",
  "Uruguay" : "https://www.worldometers.info//img/flags/small/tn_uy-flag.gif",
