@@ -129,10 +129,10 @@ const SoccerPlayerName = ({ gameType }) => {
     return <div className="flex flex-row justify-center items-center"> {realAge} {logo} </div>
   }
   const handlePositionLogo = (position, size = 20) => {
-    if(position.toLowerCase().includes('forward') || position.toLowerCase().includes('striker')){
+    if(position.toLowerCase().includes('forward') || position.toLowerCase().includes('striker') || position.toLowerCase().includes('winger')){
       return <div className="flex flex-col justfiy-center items-center text-[12px]"><IoMdFootball size={size}/>Forward</div>;
     }
-    else if(position.toLowerCase().includes('midfield') || position.toLowerCase().includes('winger')){
+    else if(position.toLowerCase().includes('midfield')){
       return <div className="flex flex-col justfiy-center items-center text-[12px]"><BsArrowsMove size={size}/>Midfield</div>;
     }
     else if(position.toLowerCase().includes('keeper')){
@@ -151,9 +151,9 @@ const SoccerPlayerName = ({ gameType }) => {
   }
 
   const handlePositionColor = (actualPosition, truePosition) => {
-    if((actualPosition.toLowerCase().includes('forward') || actualPosition.toLowerCase().includes('striker')) && (truePosition.toLowerCase().includes('forward') || truePosition.toLowerCase().includes('striker')))
+    if((actualPosition.toLowerCase().includes('forward') || actualPosition.toLowerCase().includes('striker') || actualPosition.toLowerCase().includes('winger')) && (truePosition.toLowerCase().includes('forward') || truePosition.toLowerCase().includes('striker') || truePosition.toLowerCase().includes('winger')))
       return ' bg-green';
-    else if((actualPosition.toLowerCase().includes('midfield') || actualPosition.toLowerCase().includes('winger')) && (truePosition.toLowerCase().includes('midfield') || truePosition.toLowerCase().includes('winger')))
+    else if((actualPosition.toLowerCase().includes('midfield')) && (truePosition.toLowerCase().includes('midfield') ))
       return ' bg-green';
     else if(actualPosition.toLowerCase().includes('keeper') && truePosition.toLowerCase().includes('keeper'))
       return ' bg-green';
