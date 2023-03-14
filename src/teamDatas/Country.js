@@ -27,7 +27,7 @@ export const CountryFlags = {
  "Bulgaria" : "https://www.worldometers.info//img/flags/small/tn_bu-flag.gif",
  "Burkina Faso" : "https://www.worldometers.info//img/flags/small/tn_uv-flag.gif",
  "Burundi" : "https://www.worldometers.info//img/flags/small/tn_by-flag.gif",
- "Côte d'Ivoire" : "https://www.worldometers.info//img/flags/small/tn_iv-flag.gif",
+ "Cote d'Ivoire" : "https://www.worldometers.info//img/flags/small/tn_iv-flag.gif",
  "Cabo Verde" : "https://www.worldometers.info//img/flags/small/tn_cv-flag.gif",
  "Cambodia" : "https://www.worldometers.info//img/flags/small/tn_cb-flag.gif",
  "Cameroon" : "https://www.worldometers.info//img/flags/small/tn_cm-flag.gif",

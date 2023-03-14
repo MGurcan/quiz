@@ -1,4 +1,7 @@
 export const LatinizeLetters = {
-    'é' : 'e', 
+    'é' : 'e',
+    'è' : 'e',
     'ä':'a',
+    'ã' : 'a',
+
 }
