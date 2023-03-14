@@ -31,7 +31,7 @@ const quizPlayersSuperLig = [
     {...basaksehir[5], photo: 'https://media02.tr.beinsports.com/img/players/P5416.png'},
     {...chelsea[8], photo: 'https://img.chelseafc.com//image/upload/f_auto,h_860,q_50/editorial/people/first-team/2022-23/04519_Play_Predictor_Header_3333x5000_Enzo.png'}, */
 
-    {...adana_demirspor[8], photo: 'https://media02.tr.beinsports.com/img/players/P13216.png'},
+    {...adana_demirspor[8], photo: 'https://media02.tr.beinsports.com/img/players/P2737.png'},
     {...ankaragücü[13], photo: 'https://media02.tr.beinsports.com/img/players/P5407.png'},
 ];
 
