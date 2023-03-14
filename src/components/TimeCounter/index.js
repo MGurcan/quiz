@@ -29,10 +29,10 @@ function TimeCounter() {
   //const days = Math.floor(timeDifference / (60 * 60 * 24));
 
   return (
-    <div className='border border-gray-light w-[300px] flex flex-col justify-center items-center p-3 text-gray-light'>
+    <div className='border border-gray-light w-[300px] flex flex-col justify-center items-center p-3 text-gray-light ml-auto'>
       <h1>Until New Player</h1>
       <div className='flex flex-row p-2'>
-        <p className='p-2'>{11-hours} Hours</p>
+        <p className='p-2'>{23-hours} Hours</p>
         <p className='p-2'>{59-minutes} Minutes</p>
         <p className='p-2'>{59-seconds} Seconds</p>
       </div>

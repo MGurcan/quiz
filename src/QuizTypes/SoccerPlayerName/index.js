@@ -32,6 +32,8 @@ const SoccerPlayerName = ({ gameType }) => {
     setPredictions([])
     setWin(false)
     setQuizFinished(false)
+    setAnimationPrediction(false)
+
 
   }, [gameType])
   const fadeDuration = 500; // duration of fade animation in milliseconds
