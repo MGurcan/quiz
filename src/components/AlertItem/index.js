@@ -70,7 +70,8 @@ const [index, setIndex] = useState(0);
             <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>#{player.ShirtNo}</span>
               <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{<img src={CountryFlags[player.Country]} alt={player.Country} className='w-[60px] h-[40px]'/>}</span>
               <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{<img src={LeagueLogos[player.LeagueName]} className='w-[50px] h-[50px]'/>}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{<img src={Big6TeamsLogos[player.TeamName]} className='w-[50px] h-[50px]'/>}</span>
+              {/* <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{<img src={Big6TeamsLogos[player.TeamName]} className='w-[50px] h-[50px]'/>}</span> */}
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{player.TeamName}</span>
                 </li>
             </div>
             <button className='absolute right-4 top-4' onClick={() => window.location.reload(false)}><VscRefresh size={30} color='white'/></button>
