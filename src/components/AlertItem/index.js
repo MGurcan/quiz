@@ -8,7 +8,6 @@ const AlertItem = ({win, player, predict, handlePositionLogo, quizFinished}) => 
 
 const [index, setIndex] = useState(0);
 
-
   const spans = [
     <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>#{player.ShirtNo}</span>,
     <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>{<img src={CountryFlags[player.Country]} alt={player.Country} className='w-[120px] h-[80px]'/>}</span>,
@@ -19,7 +18,6 @@ const [index, setIndex] = useState(0);
     <span className={`rounded-md w-[185px] h-[160px] flex justify-center items-center ${win ? 'bg-green' : 'bg-gray-light'} text-[32px]`}>{player.MarketValue}</span>,
   ]
 
-  const [spanContent, setSpanContent] = useState();
   const [showAllInfos, setShowAllInfos] = useState(false);
   const [end, setEnd] = useState(false); 
 
@@ -27,10 +25,15 @@ const [index, setIndex] = useState(0);
     if (quizFinished && !end) {
       setTimeout(() => {
         setIndex((index + 1) % 8);
-        setSpanContent(spans[index])
-      }, 1500); // change content after 1 second (1000ms)
+      }, 500); // change content after 1 second (1000ms)
     }
   }, [quizFinished, index]);
+
+  React.useEffect(()=> {
+    setShowAllInfos(false);
+    setIndex(0);
+    setEnd(false);
+  }, [player]);
 
   React.useEffect(()=> {
     if(index === 7){
@@ -39,39 +42,15 @@ const [index, setIndex] = useState(0);
     }
   }, [index])
 
-  /* return (
-    <>
-      <button onClick={toggleShow}>Show Alert</button>
-      {show && (
-        <div className={`alert w-[500px] h-[300px] bg-green absolute z-10 flex flex-col justify-center items-center`}>
-            
-          <span className="closebtn" onClick={toggleShow}>&times;</span>
-          <strong>{win ? 'You Have Won' : 'You Lost'}</strong>
-          <strong>{predict}</strong>
-              <div>
-              {spanContent}
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{player.ShirtNo}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{player.Country}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{player.Height}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{player.BirthDate}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{<img src={LeagueLogos[player.LeagueName]} className='w-[50px] h-[50px]'/>}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{player.Position}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-green`}>{player.MarketValue}</span>
-              </div>
-        </div>
-      )}
-    </>
-  ); */
   return (
     <>
       {quizFinished && (
         <>
-        
-
+      
     <div className={`alert w-[800px] h-[400px] bg-gradient-to-r ${win ? 'from-green' : 'from-red'} to-siyah absolute left-1/4 top-1/4 z-10 flex flex-col justify-center items-center shadow-md rounded-xl`}>
     {!showAllInfos ? 
         <div >
-            {spanContent}
+            {spans[index]}
         </div> :
         <>
         <div className='w-full flex flex-row justify-around items-center px-16'>
@@ -98,8 +77,6 @@ const [index, setIndex] = useState(0);
         </>
         }
     </div>
-        
-        
       </>
       
       )}
