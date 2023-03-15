@@ -1,19 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const [showGames, setShowGames] = useState(false);
+  const navRef = useRef(null);
 
-  const refreshPage = () => {
-    window.location.reload();
-  };
-
+ 
   const toggleGames = () => {
     setShowGames(!showGames);
   };
 
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setShowGames(false);
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
+
   return (
-    <nav className="bg-siyah shadow-md px-10 py-5">
+    <nav className="bg-siyah shadow-md px-10 py-5" ref={navRef}>
       <div className="container mx-auto md:flex space-x-5 md:items-center">
         <div className="relative">
           <button
@@ -37,7 +49,7 @@ export const Navbar = () => {
             </div>
           )}
         </div>
-    </div>
+      </div>
     </nav>
   );
 };
