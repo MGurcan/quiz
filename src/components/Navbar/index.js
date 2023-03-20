@@ -32,7 +32,7 @@ export const Navbar = () => {
             className="hover:bg-gray text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
             onClick={toggleGames}
           >
-            Games
+            Find me
           </button>
           {showGames && (
             <div className="absolute left-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl">
@@ -49,6 +49,15 @@ export const Navbar = () => {
             </div>
           )}
         </div>
+
+        <Link to="/thisOrThat"> 
+                <button 
+                    className="hover:bg-gray text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                    ThisOrThat
+                </button>
+            </Link> 
+
+
       </div>
     </nav>
   );
