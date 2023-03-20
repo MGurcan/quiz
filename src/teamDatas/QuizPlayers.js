@@ -18,11 +18,15 @@ const quizPlayersBig5League = [
     {...chelsea[8], photo: 'https://img.chelseafc.com//image/upload/f_auto,h_860,q_50/editorial/people/first-team/2022-23/04519_Play_Predictor_Header_3333x5000_Enzo.png'}, */
 
 /*     {...lyon[22], photo: 'https://media02.tr.beinsports.com/img/players/P1533.png'},
-    {...milan[27], photo: 'https://media02.tr.beinsports.com/img/players/P13216.png'}, */
+    {...milan[27], photo: 'https://media02.tr.beinsports.com/img/players/P13216.png'},
+     {...bayern_munih[7], photo: 'https://media02.tr.beinsports.com/img/players/P240.png'},
+    {...PSG[12], photo: 'https://media02.tr.beinsports.com/img/players/P71989.png'}, */
 
-    {...bayern_munih[7], photo: 'https://media02.tr.beinsports.com/img/players/P240.png'},
-    {...PSG[12], photo: 'https://media02.tr.beinsports.com/img/players/P71989.png'},
-    {...villarreal[20], photo: 'https://media02.tr.beinsports.com/img/players/P12173.png'},
+   
+    {...roma[21], photo: 'https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/B983/production/_126219474_gettyimages-1413117074.jpg'},
+    {...leeds[1], photo: 'https://sm.imgix.net/22/06/illan-meslier.jpg'},
+    {...marseille[3], photo: 'https://www.thesun.co.uk/wp-content/uploads/2022/09/23a41238-aa01-41db-aa27-a0d3ebb2c0f0.jpg'},
+    {...brentford[23], photo: 'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt15860a5aaa7ca5bf/636fb5895811de10eb3a6db6/Ivan_Toney_Manchester_City_Brentford.jpg'},
 ];
 
 const quizPlayersSuperLig = [
@@ -34,11 +38,16 @@ const quizPlayersSuperLig = [
     {...chelsea[8], photo: 'https://img.chelseafc.com//image/upload/f_auto,h_860,q_50/editorial/people/first-team/2022-23/04519_Play_Predictor_Header_3333x5000_Enzo.png'}, */
 
 /*     {...adana_demirspor[8], photo: 'https://media02.tr.beinsports.com/img/players/P2737.png'},
-    {...ankaragücü[13], photo: 'https://media02.tr.beinsports.com/img/players/P5407.png'}, */
-
-    {...alanyaspor[12], photo: 'https://media02.tr.beinsports.com/img/players/P7039.png'},
+    {...ankaragücü[13], photo: 'https://media02.tr.beinsports.com/img/players/P5407.png'},
+        {...alanyaspor[12], photo: 'https://media02.tr.beinsports.com/img/players/P7039.png'},
     {...antalyaspor[30], photo: 'https://media02.tr.beinsports.com/img/players/P26074.png'},
-    {...besiktas[23], photo: 'https://media02.tr.beinsports.com/img/players/P4936.png'},
+    {...besiktas[23], photo: 'https://media02.tr.beinsports.com/img/players/P4936.png'}, */
+
+
+    {...antalyaspor[20], photo: 'https://www.antalyaspor.com.tr/Upload/File/2022/8/10/13110.png'},
+    {...basaksehir[28], photo: 'https://img.ibfk.com.tr/dosyalar/a-takim/77.png'},
+    {...besiktas[3], photo: 'https://images.bjk.com.tr/images/players/omar-colley_229x270.png'},
+    {...giresunspor[23], photo: 'https://media02.tr.beinsports.com/img/players/P53605.png'},
 ];
 
 export const quizPlayerBig5Leage = quizPlayersBig5League[getDays() % quizPlayersBig5League.length];
