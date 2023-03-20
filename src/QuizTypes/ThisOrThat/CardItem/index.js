@@ -8,7 +8,6 @@ const CardItem = ({player}) => {
       <h2>{player.TeamName}</h2>
       <div className="border-2 border-mor w-3/4 h-[80px] rounded-md flex justify-center items-center m-8">
         <h1>{player.Name}</h1>
-        <h1>{player.MarketValue}</h1>
       </div>
     </div>
   );

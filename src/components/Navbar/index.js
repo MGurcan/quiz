@@ -53,7 +53,7 @@ export const Navbar = () => {
         <Link to="/thisOrThat"> 
                 <button 
                     className="hover:bg-gray text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                    ThisOrThat
+                    ThisOrThat - Beta
                 </button>
             </Link> 
 

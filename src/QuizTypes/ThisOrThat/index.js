@@ -46,6 +46,7 @@ const ThisOrThat = () => {
   React.useEffect(() => {
     if(gameStatus === false){
       console.log("OYUN BITTI");
+      window.location.reload(false);
       setScore(0)
     }
     setRandom1(getRandomInt(0, PremierLeagueTeams.length));
@@ -54,7 +55,10 @@ const ThisOrThat = () => {
   return(
     <div>
       <Navbar />
-      <div>SCORE: {score} </div>
+      <div className="flex flex-col justify-center items-center text-[32px]">
+        <div>Select the player who has higher market value!</div>
+        <div>SCORE: {score} </div>
+      </div>
       <div className="flex flex-row justify-center items-center">
         <div onClick={() => onClick(1)}> <CardItem player={PremierLeagueTeams[random1]}/></div>
         <div onClick={() => onClick(2)}> <CardItem player={PremierLeagueTeams[random2]}/></div>
