@@ -3,12 +3,13 @@ import SoccerPlayerName from './QuizTypes/SoccerPlayerName';
 import { Navbar } from './components/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import ThisOrThat from './QuizTypes/ThisOrThat';
+import MainMenu from './QuizTypes/MainMenu';
 
 function App() {
   return (
     <>
       <Routes>
-        <Route exact path="/" element={  <SoccerPlayerName gameType={'big5Teams'} />} />
+        <Route exact path="/" element={  <MainMenu />} />
         <Route exact path="/big5Teams" element={  <SoccerPlayerName gameType={'big5Teams'}/>} />
         <Route exact path="/superLig" element={  <SoccerPlayerName gameType={'superLig'}/>} />
         <Route exact path="/thisOrThat" element={  <ThisOrThat />} />

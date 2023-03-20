@@ -27,9 +27,6 @@ const ThisOrThat = () => {
     return logo;
   }
   const onClick = (playerId) => {
-    console.log("playerID: ", playerId)
-    console.log("1: ", PremierLeagueTeams[random1].MarketValue)
-    console.log("2: ", PremierLeagueTeams[random2].MarketValue)
     if(playerId === 1){
       compareValues(PremierLeagueTeams[random1].MarketValue, PremierLeagueTeams[random2].MarketValue) ? setScore(score + 1) : setGameStatus(false);
     }
@@ -45,7 +42,6 @@ const ThisOrThat = () => {
   
   React.useEffect(() => {
     if(gameStatus === false){
-      console.log("OYUN BITTI");
       window.location.reload(false);
       setScore(0)
     }
