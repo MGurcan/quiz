@@ -4,11 +4,12 @@ import { getDays, getHours } from "../components/TimeCounter";
 import { bayern_munih } from './Bundesliga'; 
 import { atletico_de_madrid, villarreal } from "./LaLiga";
 import { marseille } from "./Ligue1";
-import { liverpool, chelsea,leeds,brentford } from "./PremierLeague";
-import { napoli,roma } from "./SerieA";
-import { lyon, PSG} from "./Ligue1";
+import { liverpool, chelsea, brentford, leeds } from "./PremierLeague";
+import { napoli, roma } from "./SerieA";
+import { lyon, PSG } from "./Ligue1";
 import { milan } from "./SerieA";
 import { sivasspor, kasimpasa, fenerbahce, galatasaray, basaksehir, adana_demirspor, ankaragücü, alanyaspor, antalyaspor, besiktas, giresunspor } from "./SuperLig";
+
 const quizPlayersBig5League = [
 /*     {...bayern_munih[2], photo: 'https://img.fcbayern.com/image/upload/t_cms-portrait/f_auto/w_510,c_fill/q_auto/v1659953193/cms/public/images/fcbayern-com/players/spielerportraits/ganzkoerper/matthijs-de-ligt.png'},
     {...atletico_de_madrid[16], photo: 'https://img-estaticos.atleticodemadrid.com/system/fotos/13121/destacado_460x460/_0022_RECORTES_WEB_0003_DE-PAUL.png?1660404527'},
@@ -23,7 +24,7 @@ const quizPlayersBig5League = [
     {...PSG[12], photo: 'https://media02.tr.beinsports.com/img/players/P71989.png'}, */
 
    
-    {...roma[21], photo: 'wijnaldum.jpg'},
+    {...roma[21], photo: 'https://gandalf.wlsrv.com:2083/cpsess0551444537/frontend/paper_lantern/filemanager/showfile.html?file=wijnaldum.jpg&fileop=&dir=%2Fhome%2Fmaniacgu%2Fpublic_html%2Fimages&dirop=&charset=&file_charset=&baseurl=&basedir='},
     {...leeds[1], photo: 'https://sm.imgix.net/22/06/illan-meslier.jpg'},
     {...marseille[3], photo: 'https://www.thesun.co.uk/wp-content/uploads/2022/09/23a41238-aa01-41db-aa27-a0d3ebb2c0f0.jpg'},
     {...brentford[23], photo: 'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt15860a5aaa7ca5bf/636fb5895811de10eb3a6db6/Ivan_Toney_Manchester_City_Brentford.jpg'},
