@@ -25,7 +25,7 @@ const quizPlayersBig5League = [
 
    
     {...roma[21], photo: 'https://gandalf.wlsrv.com:2083/cpsess0551444537/frontend/paper_lantern/filemanager/showfile.html?file=wijnaldum.jpg&fileop=&dir=%2Fhome%2Fmaniacgu%2Fpublic_html%2Fimages&dirop=&charset=&file_charset=&baseurl=&basedir='},
-    {...leeds[1], photo: 'https://sm.imgix.net/22/06/illan-meslier.jpg'},
+    {...leeds[0], photo: 'https://sm.imgix.net/22/06/illan-meslier.jpg'},
     {...marseille[3], photo: 'https://www.thesun.co.uk/wp-content/uploads/2022/09/23a41238-aa01-41db-aa27-a0d3ebb2c0f0.jpg'},
     {...brentford[23], photo: 'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt15860a5aaa7ca5bf/636fb5895811de10eb3a6db6/Ivan_Toney_Manchester_City_Brentford.jpg'},
 ];

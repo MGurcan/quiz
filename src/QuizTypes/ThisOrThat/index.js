@@ -42,7 +42,6 @@ const ThisOrThat = () => {
       
       logo = compareVal === val ? true : (compareVal > val ? false : true);
     }
-    console.log(logo)
     return logo;
   }
   const onClick = (playerId) => {
@@ -68,9 +67,9 @@ const ThisOrThat = () => {
     setRandom2(getRandomInt(0, teams?.length));
   }, [score, gameStatus]);
   return(
-    <div>
+    <div className="w-full min-h-[1000px] bg-gradient-to-r from-yesil to-mavi">
       <Navbar />
-      <div className="flex flex-col justify-center items-center text-[32px]">
+      <div className="flex flex-col justify-center items-center text-[32px] text-gray-light p-8">
         <div>Select the player who has higher market value!</div>
         <div>SCORE: {score} </div>
       </div>

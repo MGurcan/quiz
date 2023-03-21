@@ -3,6 +3,7 @@ import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 import { LeagueLogos } from '../../../teamDatas/Big6Teams';
 import { Link } from 'react-router-dom';
+import { GrCircleInformation } from 'react-icons/gr';
 
 const leagueLogos = [
   {
@@ -38,9 +39,15 @@ const leagueLogos = [
 ];
 
 const ThisOrThatCard = () => {
+  const description = <span className='p-4 absolute right-0 top-0 w-[200px] h-auto opacity-80 text-gray-light text-center bg-siyah z-10'>You need to find the player who has higher market value.</span>
+  const [seeDescription, setSeeDescription] = React.useState(false);
   return (
-    <div className="w-full h-full bg-yesil slide-container flex-justify-center items-center p-4">
-      <h1 className="text-center w-full text-[32px] text-gray-light border-2 border-gray-light">This or That</h1>
+    <div className="relative w-full h-full bg-yesil slide-container flex-justify-center items-center p-4">
+      <div className="relative text-center w-full text-[32px] text-gray-light border-2 border-gray-light">
+        <button className='absolute left-0 top-0' onClick={() => setSeeDescription(!seeDescription)}><GrCircleInformation /></button>
+        <h1 >This or That</h1>
+      </div>
+      {seeDescription && description}
       <Fade>
         {leagueLogos.map((fadeImage, index) => (
           <div key={index} className='w-full h-full flex flex-col justify-center items-center p-10'>

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Fade } from "react-slideshow-image";
 import { LeagueLogos } from "../../../teamDatas/Big6Teams";
+import { GrCircleInformation } from 'react-icons/gr';
 
 const SoccerPlayerNameCard = () => {
   const leagueLogos = [
@@ -16,9 +17,15 @@ const SoccerPlayerNameCard = () => {
       link: 'superLig'
     },
   ];
+  const description = <span className='p-4 absolute right-0 top-0 w-[200px] h-auto opacity-80 text-gray-light text-center bg-siyah z-10'>You will have 7 chances to find the player according to your predictions.</span>
+  const [seeDescription, setSeeDescription] = React.useState(false);
   return(
     <div className="w-full h-full bg-mavi slide-container flex-justify-center items-center p-4">
-      <h1 className="text-center w-full text-[32px] text-gray-light border-2 border-gray-light">Find Me</h1>
+      <div className="relative text-center w-full text-[32px] text-gray-light border-2 border-gray-light">
+        <button className='absolute left-0 top-0' onClick={() => setSeeDescription(!seeDescription)}><GrCircleInformation /></button>
+        <h1 >Find Me</h1>
+      </div>
+      {seeDescription && description}
       <Fade>
         {leagueLogos.map((fadeImage, index) => (
           <div key={index} className='w-full h-full flex flex-col justify-center items-center p-10'>
