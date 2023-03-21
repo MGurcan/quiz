@@ -22,5 +22,5 @@ export const LeagueLogos = {
     'Serie A' : 'https://drive.google.com/uc?export=view&id=1BIz7QreVP2jWw2aftTOtAiFEbiJwW2it',
    /*  'S\u00fcper Lig' : 'https://www.thesportsdb.com/images/media/league/badge/h7xx231601671132.png', */
     'S\u00fcper Lig' : 'https://drive.google.com/uc?export=view&id=1HMDUZqW5OA38oySSvp2TvPI1UhVkZE3h',
-    
+    'Big5Logos' : 'https://pbs.twimg.com/media/FgKAtavWIAc1zo8.jpg'
 }

@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CardItem from "./CardItem";
 import { PremierLeagueTeams } from "../../teamDatas/PremierLeague";
+import { BundesligaTeams } from "../../teamDatas/Bundesliga";
+import { SerieATeams } from "../../teamDatas/SerieA";
+import { Ligue1Teams } from "../../teamDatas/Ligue1";
+import { LaligaTeams } from "../../teamDatas/LaLiga";
+import { SuperLigTeams } from "../../teamDatas/SuperLig";
 import { Navbar } from "../../components/Navbar";
+import { useParams } from "react-router-dom";
 
 const ThisOrThat = () => {
+  const routeParams = useParams();
+  const league = routeParams.league;
+
+  const [teams, setTeams] = React.useState(PremierLeagueTeams);
+  
+  useEffect(()=> {
+    if(league === 'premierLeague') setTeams(PremierLeagueTeams)
+    if(league === 'bundesliga') setTeams(BundesligaTeams)
+    if(league === 'serieA') setTeams(SerieATeams)
+    if(league === 'ligue1') setTeams(Ligue1Teams)
+    if(league === 'laLiga') setTeams(LaligaTeams)
+    if(league === 'superLig') setTeams(SuperLigTeams)
+  },[league]);
 
   function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -28,14 +47,14 @@ const ThisOrThat = () => {
   }
   const onClick = (playerId) => {
     if(playerId === 1){
-      compareValues(PremierLeagueTeams[random1].MarketValue, PremierLeagueTeams[random2].MarketValue) ? setScore(score + 1) : setGameStatus(false);
+      compareValues(teams[random1].MarketValue, teams[random2].MarketValue) ? setScore(score + 1) : setGameStatus(false);
     }
     else if(playerId === 2){
-      compareValues(PremierLeagueTeams[random2].MarketValue, PremierLeagueTeams[random1].MarketValue) ? setScore(score + 1) : setGameStatus(false);
+      compareValues(teams[random2].MarketValue, teams[random1].MarketValue) ? setScore(score + 1) : setGameStatus(false);
     }
   }
-  const [random1, setRandom1] = React.useState(getRandomInt(0, PremierLeagueTeams.length))
-  const [random2, setRandom2] = React.useState(getRandomInt(0, PremierLeagueTeams.length))
+  const [random1, setRandom1] = React.useState(getRandomInt(0, teams?.length))
+  const [random2, setRandom2] = React.useState(getRandomInt(0, teams?.length))
 
   const [gameStatus, setGameStatus] = React.useState(true);
   const [score, setScore] = React.useState(0);
@@ -45,8 +64,8 @@ const ThisOrThat = () => {
       window.location.reload(false);
       setScore(0)
     }
-    setRandom1(getRandomInt(0, PremierLeagueTeams.length));
-    setRandom2(getRandomInt(0, PremierLeagueTeams.length));
+    setRandom1(getRandomInt(0, teams?.length));
+    setRandom2(getRandomInt(0, teams?.length));
   }, [score, gameStatus]);
   return(
     <div>
@@ -56,8 +75,8 @@ const ThisOrThat = () => {
         <div>SCORE: {score} </div>
       </div>
       <div className="flex flex-row justify-center items-center">
-        <div onClick={() => onClick(1)}> <CardItem player={PremierLeagueTeams[random1]}/></div>
-        <div onClick={() => onClick(2)}> <CardItem player={PremierLeagueTeams[random2]}/></div>
+        <div onClick={() => onClick(1)}> <CardItem player={teams[random1]}/></div>
+        <div onClick={() => onClick(2)}> <CardItem player={teams[random2]}/></div>
       </div>
     </div>
   );

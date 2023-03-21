@@ -42,12 +42,12 @@ export const Navbar = () => {
           </button>
           {showGames && (
             <div className="absolute left-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl">
-              <Link to="/big5Teams">
+              <Link to="/findMe/big5Teams">
                 <div className="hover:bg-gray-100 px-3 py-2 rounded-md cursor-pointer">
                   Big Five
                 </div>
               </Link>
-              <Link to="/superLig">
+              <Link to="/findMe/superLig">
                 <div className="hover:bg-gray-100 px-3 py-2 rounded-md cursor-pointer">
                   Süper Lig
                 </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import { Navbar } from "../../components/Navbar";
 import QuizTypeCard from "../QuizTypeCard";
+import ThisOrThatCard from "../ThisOrThat/QuizTypeCard";
+import SoccerPlayerNameCard from "../SoccerPlayerName/QuizTypeCard";
 
 const MainMenu = () => {
   return(
@@ -14,10 +16,10 @@ const MainMenu = () => {
         </div>
         <ul className="flex flex-row justify-center items-center p-4">
           <li className="m-4">
-            <QuizTypeCard gameName={'Find Me'} link={'/big5Teams'}/>
+            <QuizTypeCard item={<SoccerPlayerNameCard />} link={'/big5Teams'}/>
           </li>
           <li className="m-4">
-            <QuizTypeCard gameName={'This or That'} link={'/thisOrThat'}/>
+            <QuizTypeCard item={<ThisOrThatCard />} link={'/thisOrThat'}/>
           </li>
         </ul>
       </div>
