@@ -21,6 +21,7 @@ const ThisOrThat = () => {
   const [teams, setTeams] = React.useState(PremierLeagueTeams);
   
   useEffect(()=> {
+    setScore(0)
     if(league === 'premierLeague') setTeams(PremierLeagueTeams)
     if(league === 'bundesliga') setTeams(BundesligaTeams)
     if(league === 'serieA') setTeams(SerieATeams)
