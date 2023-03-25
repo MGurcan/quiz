@@ -8,6 +8,11 @@ import { LaligaTeams } from "../../teamDatas/LaLiga";
 import { SuperLigTeams } from "../../teamDatas/SuperLig";
 import { Navbar } from "../../components/Navbar";
 import { useParams } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import styled, { keyframes } from 'styled-components';
+import { fadeIn } from 'react-animations';
+import { VscDebugRestart } from 'react-icons/vsc';
+import { TiTick } from 'react-icons/ti';
 
 const ThisOrThat = () => {
   const routeParams = useParams();
@@ -46,10 +51,22 @@ const ThisOrThat = () => {
   }
   const onClick = (playerId) => {
     if(playerId === 1){
-      compareValues(teams[random1].MarketValue, teams[random2].MarketValue) ? setScore(score + 1) : setGameStatus(false);
+      if(compareValues(teams[random1].MarketValue, teams[random2].MarketValue)){
+        setScore(score + 1);
+        setShowCorrectAnswer(true);
+      }
+      else{
+        setGameStatus(false);
+      }
     }
     else if(playerId === 2){
-      compareValues(teams[random2].MarketValue, teams[random1].MarketValue) ? setScore(score + 1) : setGameStatus(false);
+      if(compareValues(teams[random2].MarketValue, teams[random1].MarketValue)){
+        setScore(score + 1);
+        setShowCorrectAnswer(true);
+      }
+      else{
+        setGameStatus(false);
+      }
     }
   }
   const [random1, setRandom1] = React.useState(getRandomInt(0, teams?.length))
@@ -59,16 +76,85 @@ const ThisOrThat = () => {
   const [score, setScore] = React.useState(0);
   
   React.useEffect(() => {
-    if(gameStatus === false){
-      window.location.reload(false);
-      setScore(0)
-    }
     setRandom1(getRandomInt(0, teams?.length));
     setRandom2(getRandomInt(0, teams?.length));
-  }, [score, gameStatus]);
+  }, [score, teams?.length]);
+
+  const playAgain = () => {
+    window.location.reload(false);
+  }
+
+  const [showCorrectAnswer, setShowCorrectAnswer] = React.useState(false);
+  React.useEffect(() => {
+    let timeoutId;
+    if (showCorrectAnswer) {
+      timeoutId = setTimeout(() => {
+        setShowCorrectAnswer(false);
+      }, 1000);
+    }
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [showCorrectAnswer]);
+
+  const fadeDuration = 500; // duration of fade animation in milliseconds
+
+  const fadeInAnimation = keyframes`${fadeIn}`;
+  
+  const FadeInDiv0 = styled.div`
+    animation: ${fadeDuration}ms ${fadeInAnimation};
+  `;
+
+  const FadeInDiv1 = styled.div`
+  animation: ${fadeDuration+1000}ms ${fadeInAnimation};
+  `;
+
+  const FadeInDiv2 = styled.div`
+  animation: ${fadeDuration+2000}ms ${fadeInAnimation};
+  `;
+
+  const FalseAnimation = ({player1, player2}) => {
+    return(
+    <TransitionGroup className="w-[650px] flex flex-col justify-center m-2 items-center text-center text-gray-light bg-red h-[300px] rounded-md">
+      <span>You Lost</span>
+      <span>Score: {score}</span>
+      <div className="flex flex-row justify-center items-center p-4">
+        <CSSTransition timeout={fadeDuration} className="fade p-8">
+          <FadeInDiv0>
+            <span className="w-[300px]">{player1.Name}({player1.MarketValue})</span>
+          </FadeInDiv0>
+        </CSSTransition>
+
+        <CSSTransition timeout={fadeDuration} className="fade p-8">
+          <FadeInDiv1>
+            <span className="w-[300px]">{player2.Name}({player2.MarketValue})</span>
+          </FadeInDiv1>
+        </CSSTransition>
+      </div>
+      <CSSTransition timeout={fadeDuration} classNames="fade">
+        <FadeInDiv2><button onClick={playAgain}>{<VscDebugRestart size={32}/>}</button></FadeInDiv2>
+      </CSSTransition>
+    </TransitionGroup >
+    )  
+  }
+
+  const TrueAnimation = () => {
+    return(
+    <TransitionGroup className="w-[250px] h-[250px] flex flex-col justify-center m-2 items-center text-center text-gray-light bg-green rounded-full">
+      <span className="text-mor text-[32px]">Nice!</span>
+      <CSSTransition timeout={fadeDuration} classNames="fade">
+        <FadeInDiv2>{<TiTick size={32} color='purple'/>}</FadeInDiv2>
+      </CSSTransition>
+    </TransitionGroup >
+    )  
+  }
   return(
-    <div className="w-full min-h-[1000px] bg-gradient-to-r from-yesil to-mavi">
+    <div className="relative w-full min-h-[1000px] bg-gradient-to-r from-yesil to-mavi">
       <Navbar />
+      <div className="absolute left-0 bottom-0 border-2 border-gray-light w-[300px] h-[700px]">
+      </div>
+      <div className="absolute right-0 bottom-0 border-2 border-gray-light w-[300px] h-[700px]">
+      </div>
       <div className="flex flex-col justify-center items-center text-[32px] text-gray-light p-8">
         <div>Select the player who has higher market value!</div>
         <div>SCORE: {score} </div>
@@ -77,6 +163,20 @@ const ThisOrThat = () => {
         <div onClick={() => onClick(1)}> <CardItem player={teams[random1]}/></div>
         <div onClick={() => onClick(2)}> <CardItem player={teams[random2]}/></div>
       </div>
+
+    {!gameStatus && 
+        <div className="absolute inset-0 flex items-center justify-center">
+        <FalseAnimation player1={teams[random1]} player2={teams[random2]}/>
+      </div>
+    }
+
+    {showCorrectAnswer && 
+        <div className="absolute inset-0 flex items-center justify-center">
+        <TrueAnimation player1={teams[random1]} player2={teams[random2]}/>
+      </div>
+    }
+
+
     </div>
   );
 };

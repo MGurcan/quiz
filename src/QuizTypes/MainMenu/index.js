@@ -6,8 +6,13 @@ import SoccerPlayerNameCard from "../SoccerPlayerName/QuizTypeCard";
 
 const MainMenu = () => {
   return(
-    <div className="min-h-[1000px] w-full text-siyah font-serif bg-gradient-to-r from-yesil to-mavi">
+    <div className="relative min-h-[1000px] w-full text-siyah font-serif bg-gradient-to-r from-yesil to-mavi">
       <Navbar />
+
+      <div className="absolute left-0 bottom-0 border-2 border-gray-light w-[300px] h-[700px]">
+      </div>
+      <div className="absolute right-0 bottom-0 border-2 border-gray-light w-[300px] h-[700px]">
+      </div>
       <div className="w-full text-gray-light flex flex-col justify-center items-center">
        
         <div className="border-2 border-gray-light rounded-md p-4 m-4">
