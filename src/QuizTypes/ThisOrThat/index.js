@@ -13,20 +13,21 @@ import styled, { keyframes } from 'styled-components';
 import { fadeIn } from 'react-animations';
 import { VscDebugRestart } from 'react-icons/vsc';
 import { TiTick } from 'react-icons/ti';
+import { LeagueLogos } from "../../teamDatas/Big6Teams";
 
 const ThisOrThat = () => {
   const routeParams = useParams();
   const league = routeParams.league;
 
   const [teams, setTeams] = React.useState(PremierLeagueTeams);
-  
+  const [leagueLogo, setLeagueLogo] = React.useState('Premier League');
   useEffect(()=> {
-    if(league === 'premierLeague') setTeams(PremierLeagueTeams)
-    if(league === 'bundesliga') setTeams(BundesligaTeams)
-    if(league === 'serieA') setTeams(SerieATeams)
-    if(league === 'ligue1') setTeams(Ligue1Teams)
-    if(league === 'laLiga') setTeams(LaligaTeams)
-    if(league === 'superLig') setTeams(SuperLigTeams)
+    if(league === 'premierLeague'){ setTeams(PremierLeagueTeams);  setLeagueLogo('Premier League')}
+    if(league === 'bundesliga'){ setTeams(BundesligaTeams);  setLeagueLogo('Bundesliga')}
+    if(league === 'serieA'){ setTeams(SerieATeams);  setLeagueLogo('Serie A')}
+    if(league === 'ligue1'){ setTeams(Ligue1Teams);  setLeagueLogo('Ligue1')}
+    if(league === 'laLiga'){ setTeams(LaligaTeams);  setLeagueLogo('Laliga')}
+    if(league === 'superLig'){ setTeams(SuperLigTeams);  setLeagueLogo('S\u00fcper Lig')}
   },[league]);
 
   function getRandomInt(min, max) {
@@ -151,10 +152,7 @@ const ThisOrThat = () => {
   return(
     <div className="relative w-full min-h-[1000px] bg-gradient-to-r from-yesil to-mavi">
       <Navbar />
-      <div className="absolute left-0 bottom-0 border-2 border-gray-light w-[300px] h-[700px]">
-      </div>
-      <div className="absolute right-0 bottom-0 border-2 border-gray-light w-[300px] h-[700px]">
-      </div>
+
       <div className="flex flex-col justify-center items-center text-[32px] text-gray-light p-8">
         <div>Select the player who has higher market value!</div>
         <div>SCORE: {score} </div>
@@ -175,8 +173,9 @@ const ThisOrThat = () => {
         <TrueAnimation player1={teams[random1]} player2={teams[random2]}/>
       </div>
     }
-
-
+    <div className="w-full flex justify-center items-center">
+      <img src={LeagueLogos[leagueLogo]} className="w-[150px] rounded-md"/>
+    </div>
     </div>
   );
 };

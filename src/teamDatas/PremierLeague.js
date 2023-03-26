@@ -575,42 +575,42 @@ export const westham_united = [
 
 export const PremierLeagueTeamLogos = 
 {
-  'Manchester United': 'https://www.thesportsdb.com/images/media/team/badge/xzqdr11517660252.png',
-  'Liverpool FC': 'https://www.thesportsdb.com/images/media/team/badge/uvxuqq1448813372.png',
-  'AFC Bournemouth': 'https://www.thesportsdb.com/images/media/team/badge/y08nak1534071116.png',
+  'Manchester United': 'https://maniacguess.com/static/images/premierLeague/teams/Manchester_United.png',
+  'Liverpool FC': 'https://maniacguess.com/static/images/premierLeague/teams/Liverpool_FC.png',
+  'AFC Bournemouth': 'https://maniacguess.com/static/images/premierLeague/teams/AFC_Bournemouth.png',
   'Chelsea FC' :
-  'https://www.thesportsdb.com/images/media/team/badge/yvwvtu1448813215.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/Chelsea_FC.png',
   'Leeds United' :
-  'https://www.thesportsdb.com/images/media/team/badge/g0eqzw1598804097.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/Leeds_United.png',
   'Wolverhampton Wanderers' :
-  'https://www.thesportsdb.com/images/media/team/badge/u9qr031621593327.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/Wolverhampton_Wanderers',
   'Arsenal FC' :
-  'https://www.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/Arsenal_FC.png',
   'Brighton & Hove Albion' :
-  'https://www.thesportsdb.com/images/media/team/badge/ywypts1448810904.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/Brighton_&_Hove_Albion.png',
   'Fulham FC' :
-  'https://www.thesportsdb.com/images/media/team/badge/xwwvyt1448811086.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/',
   'Southampton FC' :
-  'https://www.thesportsdb.com/images/media/team/badge/ggqtd01621593274.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/Southampton_FC.png',
   'Manchester City' :
-  'https://www.thesportsdb.com/images/media/team/badge/vwpvry1467462651.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/Manchester_City.png',
   'Nottingham Forest' :
-  'https://www.thesportsdb.com/images/media/team/badge/bk4qjs1546440351.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/Nottingham_Forest.png',
   'Brentford FC' :
-  'https://www.thesportsdb.com/images/media/team/badge/grv1aw1546453779.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/Brentford_FC.png',
   'Everton FC' :
-  'https://www.thesportsdb.com/images/media/team/badge/eqayrf1523184794.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/',
   'Leicester City' :
-  'https://www.thesportsdb.com/images/media/team/badge/xtxwtu1448813356.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/Leicester_City.png',
   'West Ham United' :
-  'https://www.thesportsdb.com/images/media/team/badge/yutyxs1467459956.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/West_Ham_United.png',
   'Crystal Palace' :
-  'https://www.thesportsdb.com/images/media/team/badge/ia6i3m1656014992.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/',
   'Aston Villa' :
-  'https://www.thesportsdb.com/images/media/team/badge/gp6hm41660559699.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/Aston_Villa.png',
   'Tottenham Hotspur' :
-  'https://www.thesportsdb.com/images/media/team/badge/dfyfhl1604094109.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/Tottenham_Hotspur.png',
   'Newcastle United' :
-  'https://www.thesportsdb.com/images/media/team/badge/lhwuiz1621593302.png',
+  'https://maniacguess.com/static/images/premierLeague/teams/Newcastle_United.png',
 }
 export const PremierLeagueTeams = Array.prototype.concat(bournemouth, crystal_palace, aston_villa, fulham, liverpool, newcastle_united, southampton, nottingham, wolverhampton, chelsea, brentford, leeds, tottenham, brighton, leicester, manchester_city, arsenal, manchester_united, everton, westham_united);

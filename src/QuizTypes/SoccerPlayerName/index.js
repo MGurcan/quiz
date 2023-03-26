@@ -185,10 +185,6 @@ const SoccerPlayerName = ({ gameType }) => {
   return(
     <div className="relative min-h-[1000px] w-full text-siyah font-serif bg-gradient-to-r from-yesil to-mavi">
     <Navbar />
-    <div className="absolute left-0 bottom-0 border-2 border-gray-light w-[300px] h-[700px]">
-      </div>
-      <div className="absolute right-0 bottom-0 border-2 border-gray-light w-[300px] h-[700px]">
-      </div>
     <AlertItem quizFinished={quizFinished} win={win} player={comparePlayer} predict={`${predictions.length} / 7`} handlePositionLogo={handlePositionLogo}/>
     <TimeCounter />
     <div className="w-full h-[200px] flex flex-row justify-around">
@@ -218,8 +214,8 @@ const SoccerPlayerName = ({ gameType }) => {
                   <span className="absolute left-0 top-0 flex flex-row justify-center items-center"><MdOutlineDoNotDisturb />Predicted</span>
                   <span className="w-[150px] text-left">#{player.ShirtNo}</span>
                   <span className="w-[150px] text-left">{player.Name}</span>
-                  <span className="w-[150px] text-right">{player.TeamName}</span>                
-                  {/* <span className="w-[150px] text-right flex justify-end ">{teamLogo}</span> */} {/* handle team logos */}
+                  {/* <span className="w-[150px] text-right">{player.TeamName}</span> */}                
+                  <span className="w-[150px] text-right flex justify-end ">{teamLogo}</span>
               </li>
               )
             }
@@ -227,8 +223,8 @@ const SoccerPlayerName = ({ gameType }) => {
                 <li onClick={() => handleAddNewPredict(player)} className="flex justify-between items-center bg-LightYesil p-4 hover:opacity-70 hover:cursor-pointer rounded-md m-3 shadow-md shadow-elifGri">
                   <span className="w-[150px] text-left">#{player.ShirtNo}</span>
                   <span className="w-[150px] text-left">{player.Name}</span>
-                  <span className="w-[150px] text-right">{player.TeamName}</span>
-                  {/* <span className="w-[150px] text-right flex justify-end">{teamLogo}</span> */}  {/* handle team logos */}
+                  {/* <span className="w-[150px] text-right">{player.TeamName}</span> */}
+                  <span className="w-[150px] text-right flex justify-end">{teamLogo}</span>
                 </li>
               )   
           })}

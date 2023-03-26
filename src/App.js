@@ -8,8 +8,6 @@ import MainMenu from './QuizTypes/MainMenu';
 function App() {
   return (
     <>
-          <head>AA<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8998284748956962"
-     crossorigin="anonymous"></script></head>
       <Routes>
         <Route exact path="/" element={  <MainMenu />} />
         <Route exact path="/findMe/big5Teams" element={  <SoccerPlayerName gameType={'big5Teams'}/>} />
