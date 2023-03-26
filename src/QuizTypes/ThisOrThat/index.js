@@ -22,6 +22,7 @@ const ThisOrThat = () => {
   const [teams, setTeams] = React.useState(PremierLeagueTeams);
   const [leagueLogo, setLeagueLogo] = React.useState('Premier League');
   useEffect(()=> {
+    setScore(0);
     if(league === 'premierLeague'){ setTeams(PremierLeagueTeams);  setLeagueLogo('Premier League')}
     if(league === 'bundesliga'){ setTeams(BundesligaTeams);  setLeagueLogo('Bundesliga')}
     if(league === 'serieA'){ setTeams(SerieATeams);  setLeagueLogo('Serie A')}
