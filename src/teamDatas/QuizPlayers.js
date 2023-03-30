@@ -1,18 +1,15 @@
 import React from "react";
-import { getDays, getHours } from "../components/TimeCounter";
+import { getDays } from "../components/TimeCounter";
 
 import { bayern_munih, leipzig,borussia_dortmund } from './Bundesliga'; 
-import { atletico_de_madrid, villarreal,real_betis,valencia,sevilla,athletic_bilbao } from "./LaLiga";
-import { liverpool, chelsea, brentford, leeds,crystal_palace,bournemouth,aston_villa,fulham } from "./PremierLeague";
-import { napoli, roma, milan,inter,fiorentina,torino,bologna } from "./SerieA";
-import { lyon, PSG,marseille, monaco, lens, lille, nice, stade_reims } from "./Ligue1";
-import { sivasspor, kasimpasa, fenerbahce, galatasaray, basaksehir, adana_demirspor, ankaragücü, alanyaspor, antalyaspor, besiktas, giresunspor, karagümrük } from "./SuperLig";
+import { atletico_de_madrid, villarreal, real_betis, valencia, sevilla, athletic_bilbao } from "./LaLiga";
+import { liverpool, chelsea, crystal_palace, bournemouth, aston_villa, fulham } from "./PremierLeague";
+import { roma, milan,inter,fiorentina,torino,bologna } from "./SerieA";
+import { PSG, monaco, lens, lille, nice, stade_reims } from "./Ligue1";
+import { fenerbahce, galatasaray, basaksehir, adana_demirspor, ankaragücü, alanyaspor, antalyaspor, besiktas, karagümrük } from "./SuperLig";
 
 const quizPlayersBig5League = [
 
-    /* {...roma[21], photo: 'https://gandalf.wlsrv.com:2083/cpsess0551444537/frontend/paper_lantern/filemanager/showfile.html?file=wijnaldum.jpg&fileop=&dir=%2Fhome%2Fmaniacgu%2Fpublic_html%2Fimages&dirop=&charset=&file_charset=&baseurl=&basedir='},
-    {...leeds[0], photo: 'https://maniacguess.com/static/images/meslier.jpg'},
-    {...marseille[3], photo: 'https://www.thesun.co.uk/wp-content/uploads/2022/09/23a41238-aa01-41db-aa27-a0d3ebb2c0f0.jpg'}, */
     {...real_betis[8], photo: 'https://maniacguess.com/static/images/laLiga/players/Nabil_Fekir.jpg'},
     {...valencia[23], photo: 'https://maniacguess.com/static/images/laLiga/players/Samu_Castillejo.jpg'},
     {...crystal_palace[9], photo: 'https://maniacguess.com/static/images/premierLeague/players/Eberechi_Eze.jpg'},
