@@ -47,17 +47,17 @@ const [index, setIndex] = useState(0);
       {quizFinished && (
         <>
       
-    <div className={`alert w-[800px] h-[400px] bg-gradient-to-r ${win ? 'from-green' : 'from-red'} to-siyah absolute left-1/4 top-1/4 z-10 flex flex-col justify-center items-center shadow-md rounded-xl`}>
+    <div className={`alert w-[800px] h-[400px] bg-gradient-to-r ${win ? 'from-green' : 'from-red'} to-siyah absolute left-0 right-0 ml-auto mr-auto top-1/4 z-10 flex flex-col justify-center items-center shadow-md rounded-xl max-md:w-[300px] max-md:h-[180px]`}>
     {!showAllInfos ? 
         <div >
             {spans[index]}
         </div> :
         <>
-        <div className='w-full flex flex-row justify-around items-center px-16'>
-            <div className='w-[250px] text-[24px] text-gray-light flex flex-col justify-center items-center'> 
-                <img className='rounded-md max-w-[250px] max-h-[250px]' src={player.photo}/>
+        <div className='w-full flex flex-row justify-around items-center px-16 max-md:px-4'>
+            <div className='w-[250px] text-[24px] text-gray-light flex flex-col justify-center items-center max-md:w-[120px] '> 
+                <img className='rounded-md max-w-[250px] max-h-[250px] max-md:max-w-[120px] max-md:max-h-[120px]' src={player.photo}/>
             </div>
-            <div className='w-[180px] text-[24px] text-gray-light flex flex-col justify-center items-center text-center'> 
+            <div className='w-[180px] text-[24px] text-gray-light flex flex-col justify-center items-center text-center max-md:w-[130px] max-md:text-[12px]'> 
                 <strong >{win ? 'You Won!' : 'You Lost!'}</strong>
                 <strong>{predict}</strong>
                 <strong>{player.Name}</strong>
@@ -66,12 +66,11 @@ const [index, setIndex] = useState(0);
 
 
             <div>
-                <li className="w-[650px] flex flex-row justify-between m-2 items-center text-center">
-            <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>#{player.ShirtNo}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{<img src={CountryFlags[player.Country]} alt={player.Country} className='w-[60px] h-[40px]'/>}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{<img src={LeagueLogos[player.LeagueName]} className='w-[50px] h-[50px]'/>}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{<img src={Big6TeamsLogos[player.TeamName]} className='w-[50px] h-[50px]'/>}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light`}>{player.TeamName}</span>
+                <li className="w-[650px] flex flex-row justify-between m-2 items-center text-center max-md:w-[280px]">
+            <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light max-md:w-1/6`}>#{player.ShirtNo}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light max-md:w-1/6`}>{<img src={CountryFlags[player.Country]} alt={player.Country} className='w-[60px] h-[40px]'/>}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light max-md:w-1/6`}>{<img src={LeagueLogos[player.LeagueName]} className='w-[50px] h-[50px]'/>}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center bg-gray-light max-md:w-1/6`}>{<img src={Big6TeamsLogos[player.TeamName]} className='w-[50px] h-[50px]'/>}</span>
                 </li>
             </div>
             <button className='absolute right-4 top-4' onClick={() => window.location.reload(false)}><VscRefresh size={30} color='white'/></button>

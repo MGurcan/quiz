@@ -187,18 +187,18 @@ const SoccerPlayerName = ({ gameType }) => {
     <Navbar />
     <AlertItem quizFinished={quizFinished} win={win} player={comparePlayer} predict={`${predictions.length} / 7`} handlePositionLogo={handlePositionLogo}/>
     <TimeCounter />
-    <div className="w-full h-[200px] flex flex-row justify-around">
+    <div className="w-full h-[200px] flex flex-row justify-around max-md:h-[125px]">
       {gameType === 'superLig' ? <img src={LeagueLogos['Süper Lig']} alt='Süper Lig'/> : 
       <div className="m-4 p-4 flex flex-row">
-        <img className="w-[100px] h-[120px] m-2" src={LeagueLogos.Bundesliga} alt='Bundesliga'/>
-        <img className="w-[100px] h-[120px] m-2" src={LeagueLogos.Laliga} alt='Laliga'/>
-        <img className="w-[100px] h-[120px] m-2" src={LeagueLogos.Ligue1} alt='Ligue1'/>
-        <img className="w-[100px] h-[120px] m-2" src={LeagueLogos["Premier League"]} alt='Premier League'/>
-        <img className="w-[100px] h-[120px] m-2" src={LeagueLogos["Serie A"]} alt='Serie A'/>
+        <img className="w-[100px] h-[120px] m-2 max-md:w-[60px] max-md:h-[60px]" src={LeagueLogos.Bundesliga} alt='Bundesliga'/>
+        <img className="w-[100px] h-[120px] m-2 max-md:w-[60px] max-md:h-[60px]" src={LeagueLogos.Laliga} alt='Laliga'/>
+        <img className="w-[100px] h-[120px] m-2 max-md:w-[60px] max-md:h-[60px]" src={LeagueLogos.Ligue1} alt='Ligue1'/>
+        <img className="w-[100px] h-[120px] m-2 max-md:w-[60px] max-md:h-[60px]" src={LeagueLogos["Premier League"]} alt='Premier League'/>
+        <img className="w-[100px] h-[120px] m-2 max-md:w-[60px] max-md:h-[60px]" src={LeagueLogos["Serie A"]} alt='Serie A'/>
       </div>}
     </div>
     <div className={`flex flex-col items-center ${quizFinished ? 'blur-md' : ''}`}>
-      <div className='w-[500px] flex flex-col items-center'>
+      <div className='w-[500px] flex flex-col items-center max-md:w-[350px]'>
         <div className="w-full">
           <PredictionInput text={text} onChangeText={onChangeText} numberOfPredictions={predictions.length} totalPredictions={7} className='m-2'/>
           <ul className="max-h-[300px] overflow-y-auto">
@@ -233,19 +233,19 @@ const SoccerPlayerName = ({ gameType }) => {
         <div className={`${predictionBgColor()} flex justify-center items-center w-[200px] h-[80px] text-[24px] rounded-md`}>Predictions: {predictions.length} / 7</div>
         <ul className="m-4">
           {predictions.length > 0 ? 
-             <li className="flex flex-row justify-between p-4 m-2 items-center text-center font-black text-white">
-             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Shirt No</span>
-             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Nationality</span>
-             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Height</span>
-             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Age</span>
+             <li className="flex flex-row justify-between p-4 m-2 items-center text-center font-black text-white max-md:text-[8px]">
+             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi max-md:w-[30px]">Shirt No</span>
+             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi max-md:w-[30px]">Nationality</span>
+             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi max-md:w-[30px]">Height</span>
+             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi max-md:w-[30px]">Age</span>
 
              {gameType === 'big5Teams' ? 
-              <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">League</span> :
-              <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Team</span>
+              <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi max-md:w-[30px]">League</span> :
+              <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi max-md:w-[30px]">Team</span>
               }
              
-             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Position</span>
-             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi">Value</span>
+             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi max-md:w-[30px]">Position</span>
+             <span className="w-[85px] flex justify-center shadow-md rounded-md bg-KoyuMavi max-md:w-[30px]">Value</span>
            </li> : ''  
         }
        
@@ -256,67 +256,67 @@ const SoccerPlayerName = ({ gameType }) => {
             <h2 className="w-full text-center font-black">{predict.Name}</h2>
         {index === 0 && animationPrediction ? 
           <li>
-            <TransitionGroup className="w-[650px] flex flex-row justify-between m-2 items-center text-center">
+            <TransitionGroup className="w-[650px] flex flex-row justify-between m-2 items-center text-center max-md:w-[300px] max-md:text-[8px]">
             <CSSTransition timeout={fadeDuration} classNames="fade">
-              <FadeInDiv0><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.ShirtNo, comparePlayer?.ShirtNo)}`}>{handleShirtNo(predict.ShirtNo, comparePlayer?.ShirtNo)}</span></FadeInDiv0>
+              <FadeInDiv0><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] max-md:h- ${handleColor(predict.ShirtNo, comparePlayer?.ShirtNo)}`}>{handleShirtNo(predict.ShirtNo, comparePlayer?.ShirtNo)}</span></FadeInDiv0>
             </CSSTransition>
           
           
             <CSSTransition timeout={fadeDuration} classNames="fade">
-              <FadeInDiv1><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Country, comparePlayer?.Country)}`}>{<img src={CountryFlags[predict.Country]} alt={predict.Country} className='w-[60px] h-[40px]'/>}</span></FadeInDiv1>
+              <FadeInDiv1><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(predict.Country, comparePlayer?.Country)}`}>{<img src={CountryFlags[predict.Country]} alt={predict.Country} className='w-[60px] h-[40px]'/>}</span></FadeInDiv1>
             </CSSTransition>
           
           
             <CSSTransition timeout={fadeDuration} classNames="fade">
-              <FadeInDiv2><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Height, comparePlayer?.Height)}`}>{handleHeight(predict.Height, comparePlayer?.Height)}</span></FadeInDiv2>
+              <FadeInDiv2><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(predict.Height, comparePlayer?.Height)}`}>{handleHeight(predict.Height, comparePlayer?.Height)}</span></FadeInDiv2>
             </CSSTransition>
           
           
             <CSSTransition timeout={fadeDuration} classNames="fade">
-              <FadeInDiv3><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(getAgeFromBirthDate(predict.BirthDate), getAgeFromBirthDate(comparePlayer?.BirthDate))}`}>{handleAge(predict.BirthDate, comparePlayer?.BirthDate)}</span></FadeInDiv3>
+              <FadeInDiv3><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(getAgeFromBirthDate(predict.BirthDate), getAgeFromBirthDate(comparePlayer?.BirthDate))}`}>{handleAge(predict.BirthDate, comparePlayer?.BirthDate)}</span></FadeInDiv3>
             </CSSTransition>
           
 
             {gameType === 'big5Teams' ? 
             <CSSTransition timeout={fadeDuration} classNames="fade">
-              <FadeInDiv4><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.LeagueName, comparePlayer?.LeagueName)}`}>{<img src={LeagueLogos[predict.LeagueName]} className='w-[50px] h-[50px]'/>}</span></FadeInDiv4>
+              <FadeInDiv4><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(predict.LeagueName, comparePlayer?.LeagueName)}`}>{<img src={LeagueLogos[predict.LeagueName]} className='w-[50px] h-[50px]'/>}</span></FadeInDiv4>
             </CSSTransition> : 
 /*             <CSSTransition timeout={fadeDuration} classNames="fade">
             <FadeInDiv4><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.TeamName, comparePlayer?.TeamName)}`}>{<img src={Big6TeamsLogos[predict.TeamName]} className='w-[50px] h-[50px]'/>}</span></FadeInDiv4>
             </CSSTransition> */  /* team logos handle */
             <CSSTransition timeout={fadeDuration} classNames="fade">
-              <FadeInDiv4><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.TeamName, comparePlayer?.TeamName)}`}>{predict.TeamName}</span></FadeInDiv4>
+              <FadeInDiv4><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(predict.TeamName, comparePlayer?.TeamName)}`}>{predict.TeamName}</span></FadeInDiv4>
             </CSSTransition>
             }
             
           
           
             <CSSTransition timeout={fadeDuration} classNames="fade">
-              <FadeInDiv5><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handlePositionColor(predict.Position, comparePlayer?.Position)}`}>{handlePositionLogo(predict.Position)}</span></FadeInDiv5>
+              <FadeInDiv5><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handlePositionColor(predict.Position, comparePlayer?.Position)}`}>{handlePositionLogo(predict.Position)}</span></FadeInDiv5>
             </CSSTransition>
           
           
             <CSSTransition timeout={fadeDuration} classNames="fade">
-              <FadeInDiv6><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.MarketValue, comparePlayer?.MarketValue)}`}>{handleValue(predict.MarketValue, comparePlayer?.MarketValue)}</span></FadeInDiv6>
+              <FadeInDiv6><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(predict.MarketValue, comparePlayer?.MarketValue)}`}>{handleValue(predict.MarketValue, comparePlayer?.MarketValue)}</span></FadeInDiv6>
             </CSSTransition>
             </TransitionGroup>
           </li>
           : 
-          <li className="w-[650px] flex flex-row justify-between m-2 items-center text-center">
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.ShirtNo, comparePlayer?.ShirtNo)}`}>{handleShirtNo(predict.ShirtNo, comparePlayer?.ShirtNo)}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Country, comparePlayer?.Country)}`}>{<img src={CountryFlags[predict.Country]} alt={predict.Country} className='w-[60px] h-[40px]'/>}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.Height, comparePlayer?.Height)}`}>{handleHeight(predict.Height, comparePlayer?.Height)}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(getAgeFromBirthDate(predict.BirthDate), getAgeFromBirthDate(comparePlayer?.BirthDate))}`}>{handleAge(predict.BirthDate, comparePlayer?.BirthDate)}</span>
+          <li className="w-[650px] flex flex-row justify-between m-2 items-center text-center max-md:w-[300px] max-md:text-[8px]">
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(predict.ShirtNo, comparePlayer?.ShirtNo)}`}>{handleShirtNo(predict.ShirtNo, comparePlayer?.ShirtNo)}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(predict.Country, comparePlayer?.Country)}`}>{<img src={CountryFlags[predict.Country]} alt={predict.Country} className='w-[60px] h-[40px]'/>}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(predict.Height, comparePlayer?.Height)}`}>{handleHeight(predict.Height, comparePlayer?.Height)}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(getAgeFromBirthDate(predict.BirthDate), getAgeFromBirthDate(comparePlayer?.BirthDate))}`}>{handleAge(predict.BirthDate, comparePlayer?.BirthDate)}</span>
               
               {gameType === 'big5Teams' ? 
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.LeagueName, comparePlayer?.LeagueName)}`}>{<img src={LeagueLogos[predict.LeagueName]} className='w-[50px] h-[50px]'/>}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(predict.LeagueName, comparePlayer?.LeagueName)}`}>{<img src={LeagueLogos[predict.LeagueName]} className='w-[50px] h-[50px]'/>}</span>
               : 
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.TeamName, comparePlayer?.TeamName)}`}>{predict.TeamName}</span>
-              }{/* <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.TeamName, comparePlayer?.TeamName)}`}>{<img src={Big6TeamsLogos[predict.TeamName]} className='w-[50px] h-[50px]'/>}</span> */}
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(predict.TeamName, comparePlayer?.TeamName)}`}>{predict.TeamName}</span>
+              }
               
               
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handlePositionColor(predict.Position, comparePlayer?.Position)}`}>{handlePositionLogo(predict.Position)}</span>
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.MarketValue, comparePlayer?.MarketValue)}`}>{handleValue(predict.MarketValue, comparePlayer?.MarketValue)}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handlePositionColor(predict.Position, comparePlayer?.Position)}`}>{handlePositionLogo(predict.Position)}</span>
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(predict.MarketValue, comparePlayer?.MarketValue)}`}>{handleValue(predict.MarketValue, comparePlayer?.MarketValue)}</span>
           </li>
       }
             </div>
