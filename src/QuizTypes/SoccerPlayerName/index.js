@@ -25,7 +25,7 @@ const SoccerPlayerName = ({ gameType }) => {
   const [predictions, setPredictions] = React.useState([]);
 
   const [comparePlayer, setcomparePlayer] = useState(gameType === 'big5Teams' ? quizPlayerBig5Leage : quizPlayerSuperLig);
-  const[win, setWin] = useState(false);
+  const [win, setWin] = useState(false);
   const [quizFinished, setQuizFinished] = useState(false);
   useEffect(() => {
     setcomparePlayer(gameType === 'big5Teams' ? quizPlayerBig5Leage : quizPlayerSuperLig)
