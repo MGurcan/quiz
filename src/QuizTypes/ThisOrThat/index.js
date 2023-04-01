@@ -154,7 +154,7 @@ const ThisOrThat = () => {
     <div className="relative w-full min-h-[1000px] bg-gradient-to-r from-yesil to-mavi">
       <Navbar />
 
-      <div className="flex flex-col justify-center items-center text-[32px] text-gray-light p-8">
+      <div className="flex flex-col justify-center items-center text-[32px] text-center text-gray-light p-8 max-md:text-[20px]">
         <div>Select the player who has higher market value!</div>
         <div>SCORE: {score} </div>
       </div>

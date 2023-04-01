@@ -46,7 +46,7 @@ export const Navbar = () => {
             Find me
           </button>
           {showGames && (
-            <div className="absolute left-0 mt-2 py-2 bg-white rounded-lg shadow-xl">
+            <div className="absolute left-0 mt-2 py-2 bg-white rounded-lg shadow-xl z-10">
               <Link to="/findMe/big5Teams">
                 <span className="hover:bg-gray-light text-siyah px-3 py-2 rounded-md cursor-pointer">
                   Big Five
@@ -69,7 +69,7 @@ export const Navbar = () => {
             ThisOrThat
           </button>
           {showGames2 && (
-            <div className="absolute left-0 mt-2 py-2 bg-white rounded-lg shadow-xl text-siyah w-32">
+            <div className="absolute left-0 mt-2 py-2 bg-white rounded-lg shadow-xl text-siyah w-32 z-10">
               <Link to="/thisOrThat/premierLeague">
                 <div className="hover:bg-gray-light px-3 py-2 rounded-md cursor-pointer">
                   Premier League

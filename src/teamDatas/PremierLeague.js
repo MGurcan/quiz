@@ -599,7 +599,7 @@ export const PremierLeagueTeamLogos =
   'Brentford FC' :
   'https://maniacguess.com/static/images/premierLeague/teams/Brentford_FC.png',
   'Everton FC' :
-  'https://maniacguess.com/static/images/premierLeague/teams/',
+  'https://maniacguess.com/static/images/premierLeague/teams/Everton_FC.png',
   'Leicester City' :
   'https://maniacguess.com/static/images/premierLeague/teams/Leicester_City.png',
   'West Ham United' :
