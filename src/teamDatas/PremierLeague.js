@@ -583,13 +583,13 @@ export const PremierLeagueTeamLogos =
   'Leeds United' :
   'https://maniacguess.com/static/images/premierLeague/teams/Leeds_United.png',
   'Wolverhampton Wanderers' :
-  'https://maniacguess.com/static/images/premierLeague/teams/Wolverhampton_Wanderers',
+  'https://maniacguess.com/static/images/premierLeague/teams/Wolverhampton_Wanderers.png',
   'Arsenal FC' :
   'https://maniacguess.com/static/images/premierLeague/teams/Arsenal_FC.png',
   'Brighton & Hove Albion' :
   'https://maniacguess.com/static/images/premierLeague/teams/Brighton_&_Hove_Albion.png',
   'Fulham FC' :
-  'https://maniacguess.com/static/images/premierLeague/teams/',
+  'https://maniacguess.com/static/images/premierLeague/teams/Fulham_FC.png',
   'Southampton FC' :
   'https://maniacguess.com/static/images/premierLeague/teams/Southampton_FC.png',
   'Manchester City' :
@@ -605,7 +605,7 @@ export const PremierLeagueTeamLogos =
   'West Ham United' :
   'https://maniacguess.com/static/images/premierLeague/teams/West_Ham_United.png',
   'Crystal Palace' :
-  'https://maniacguess.com/static/images/premierLeague/teams/',
+  'https://maniacguess.com/static/images/premierLeague/teams/Crystal_Palace.png',
   'Aston Villa' :
   'https://maniacguess.com/static/images/premierLeague/teams/Aston_Villa.png',
   'Tottenham Hotspur' :

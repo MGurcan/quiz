@@ -21,6 +21,9 @@ const ThisOrThat = () => {
 
   const [teams, setTeams] = React.useState(PremierLeagueTeams);
   const [leagueLogo, setLeagueLogo] = React.useState('Premier League');
+
+  const [gameType, setGameType] = React.useState('marketValue');
+
   useEffect(()=> {
     setScore(0);
     if(league === 'premierLeague'){ setTeams(PremierLeagueTeams);  setLeagueLogo('Premier League')}
@@ -36,7 +39,20 @@ const ThisOrThat = () => {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
   }
-  const compareValues = (value, compareValue) => {
+
+  const compareFeatures = (value, compareValue) => {
+    if(gameType === 'age'){
+      return compareAges(value, compareValue);
+    }
+    else {
+      return compareMarketValues(value, compareValue);
+    }
+  };
+
+  const compareMarketValues = (player, comparePlayer) => {
+    const value = player.MarketValue;
+    const compareValue = comparePlayer.MarketValue;
+    
     let logo = true;
 
     if(value?.includes('m') && compareValue?.includes('k'))
@@ -51,9 +67,23 @@ const ThisOrThat = () => {
     }
     return logo;
   }
+
+  const getAgeFromBirthDate = (birthDate) => {
+    return parseInt(birthDate.substring(birthDate.indexOf('(')+1, birthDate.indexOf('(')+3));
+  }
+
+  const compareAges = (player, comparePlayer) => {
+    const value = getAgeFromBirthDate(player.BirthDate);
+    const compareValue = getAgeFromBirthDate(comparePlayer.BirthDate);
+
+    if (value < compareValue ) return false;
+    
+    return true;
+  }
+
   const onClick = (playerId) => {
     if(playerId === 1){
-      if(compareValues(teams[random1].MarketValue, teams[random2].MarketValue)){
+      if(compareFeatures(teams[random1], teams[random2])){
         setScore(score + 1);
         setShowCorrectAnswer(true);
       }
@@ -62,7 +92,7 @@ const ThisOrThat = () => {
       }
     }
     else if(playerId === 2){
-      if(compareValues(teams[random2].MarketValue, teams[random1].MarketValue)){
+      if(compareFeatures(teams[random2], teams[random1])){
         setScore(score + 1);
         setShowCorrectAnswer(true);
       }
@@ -83,8 +113,16 @@ const ThisOrThat = () => {
   }, [score, teams?.length]);
 
   const playAgain = () => {
-    window.location.reload(false);
-  }
+    setScore(0);
+    setGameStatus(true);
+  };
+
+  const changeGameType = (type) => {
+    if(gameType !== type){
+      setGameType(type);
+      setScore(0);
+    }
+  };
 
   const [showCorrectAnswer, setShowCorrectAnswer] = React.useState(false);
   React.useEffect(() => {
@@ -123,13 +161,13 @@ const ThisOrThat = () => {
       <div className="flex flex-row justify-center items-center p-4">
         <CSSTransition timeout={fadeDuration} className="fade p-8">
           <FadeInDiv0>
-            <span className="w-[300px]">{player1.Name}({player1.MarketValue})</span>
+            <span className="w-[300px]">{player1.Name}({gameType==='marketValue' ? player1.MarketValue : getAgeFromBirthDate(player1.BirthDate)})</span>
           </FadeInDiv0>
         </CSSTransition>
 
         <CSSTransition timeout={fadeDuration} className="fade p-8">
           <FadeInDiv1>
-            <span className="w-[300px]">{player2.Name}({player2.MarketValue})</span>
+            <span className="w-[300px]">{player2.Name}({gameType==='marketValue' ? player2.MarketValue : getAgeFromBirthDate(player2.BirthDate)})</span>
           </FadeInDiv1>
         </CSSTransition>
       </div>
@@ -153,9 +191,12 @@ const ThisOrThat = () => {
   return(
     <div className="relative w-full min-h-[1000px] bg-gradient-to-r from-yesil to-mavi">
       <Navbar />
-
+      <div className="w-full flex justify-center p-4">
+        <button className={`${gameType === 'marketValue' ? 'bg-gray-light text-mor' : ''} text-gray-light text-[18px] border-2 border-mor w-[200px] rounded-md p-4 hover:bg-gray-light hover:cursor-pointer hover:text-mor m-2`} onClick={() => changeGameType('marketValue')}>MARKET VALUE</button>
+        <button className={`${gameType === 'age' ? 'bg-gray-light text-mor' : ''} text-gray-light text-[18px] border-2 border-mor w-[200px] rounded-md p-4 hover:bg-gray-light hover:cursor-pointer hover:text-mor m-2`} onClick={() => changeGameType('age')}>AGE</button>
+      </div>
       <div className="flex flex-col justify-center items-center text-[32px] text-center text-gray-light p-8 max-md:text-[20px]">
-        <div>Select the player who has higher market value!</div>
+        <div>Select the player who {gameType === 'marketValue' ? 'has higher Market Value' : ' is older'}</div>
         <div>SCORE: {score} </div>
       </div>
       <div className="flex flex-row justify-center items-center">
