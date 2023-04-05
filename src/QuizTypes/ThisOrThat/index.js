@@ -155,19 +155,19 @@ const ThisOrThat = () => {
 
   const FalseAnimation = ({player1, player2}) => {
     return(
-    <TransitionGroup className="w-[650px] flex flex-col justify-center m-2 items-center text-center text-gray-light bg-red h-[300px] rounded-md">
+    <TransitionGroup className="w-[650px] flex flex-col justify-center m-2 items-center text-center text-gray-light bg-red h-[300px] rounded-md max-md:w-[250px] max-md:text-[16px]">
       <span className="text-[24px]">You Lost</span>
       <span className="text-[24px]">Score: {score}</span>
-      <div className="flex flex-row justify-center items-center p-4">
-        <CSSTransition timeout={fadeDuration} className="fade p-8">
+      <div className="flex flex-row justify-center items-center p-4 max-md:p-0 max-md:flex-col">
+        <CSSTransition timeout={fadeDuration} className="fade p-8 max-md:p-2">
           <FadeInDiv0>
-            <span className="w-[300px] border-2 border-gray-light p-4 rounded-md">{player1.Name}(<strong className="underline p-2">{gameType==='marketValue' ? player1.MarketValue : getAgeFromBirthDate(player1.BirthDate)}</strong>)</span>
+            <span className="w-[300px] border-2 border-gray-light p-4 rounded-md max-md:w-[250px] max-md:p-0 max-md:border-0">{player1.Name}(<strong className="underline p-2 max-md:p-0">{gameType==='marketValue' ? player1.MarketValue : getAgeFromBirthDate(player1.BirthDate)}</strong>)</span>
           </FadeInDiv0>
         </CSSTransition>
 
-        <CSSTransition timeout={fadeDuration} className="fade p-8">
+        <CSSTransition timeout={fadeDuration} className="fade p-8 max-md:p-2">
           <FadeInDiv1>
-            <span className="w-[300px] border-2 border-gray-light p-4 rounded-md">{player2.Name}(<strong className="underline p-2">{gameType==='marketValue' ? player2.MarketValue : getAgeFromBirthDate(player2.BirthDate)}</strong>)</span>
+            <span className="w-[300px] border-2 border-gray-light p-4 rounded-md max-md:w-[250px] max-md:p-0 max-md:border-0">{player2.Name}(<strong className="underline p-2 max-md:p-0">{gameType==='marketValue' ? player2.MarketValue : getAgeFromBirthDate(player2.BirthDate)}</strong>)</span>
           </FadeInDiv1>
         </CSSTransition>
       </div>

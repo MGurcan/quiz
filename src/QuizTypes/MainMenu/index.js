@@ -10,10 +10,7 @@ const MainMenu = () => {
       <div className="relative min-h-[1000px] w-full text-siyah font-serif bg-gradient-to-r from-yesil to-mavi">
         <Navbar />
         <div className="w-full text-gray-light flex flex-col justify-center items-center">
-        
-          <div className="border-2 border-gray-light rounded-md p-4 m-4">
-            <h1 className="text-gray-light text-[50px]">ManiacGuess</h1>
-          </div>
+          <img src="https://maniacguess.com/static/images/customLogos/maniacguesslogo.png" className="w-[200px] h-[200px] rounded-md m-4"/>
           <ul className="flex flex-row justify-center items-center p-4 max-md:flex-col">
             <li className="m-4">
               <QuizTypeCard item={<SoccerPlayerNameCard />} />
