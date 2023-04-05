@@ -281,12 +281,9 @@ const SoccerPlayerName = ({ gameType }) => {
             <CSSTransition timeout={fadeDuration} classNames="fade">
               <FadeInDiv4><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(predict.LeagueName, comparePlayer?.LeagueName)}`}>{<img src={LeagueLogos[predict.LeagueName]} className='w-[50px] h-[50px]'/>}</span></FadeInDiv4>
             </CSSTransition> : 
-/*             <CSSTransition timeout={fadeDuration} classNames="fade">
+             <CSSTransition timeout={fadeDuration} classNames="fade">
             <FadeInDiv4><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center ${handleColor(predict.TeamName, comparePlayer?.TeamName)}`}>{<img src={Big6TeamsLogos[predict.TeamName]} className='w-[50px] h-[50px]'/>}</span></FadeInDiv4>
-            </CSSTransition> */  /* team logos handle */
-            <CSSTransition timeout={fadeDuration} classNames="fade">
-              <FadeInDiv4><span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(predict.TeamName, comparePlayer?.TeamName)}`}>{predict.TeamName}</span></FadeInDiv4>
-            </CSSTransition>
+            </CSSTransition>  /* team logos handle */
             }
             
           
@@ -311,8 +308,8 @@ const SoccerPlayerName = ({ gameType }) => {
               {gameType === 'big5Teams' ? 
               <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(predict.LeagueName, comparePlayer?.LeagueName)}`}>{<img src={LeagueLogos[predict.LeagueName]} className='w-[50px] h-[50px]'/>}</span>
               : 
-              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(predict.TeamName, comparePlayer?.TeamName)}`}>{predict.TeamName}</span>
-              }
+              <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handleColor(predict.TeamName, comparePlayer?.TeamName)}`}>{<img src={Big6TeamsLogos[predict.TeamName]} className='w-[50px] h-[50px]'/>}</span> 
+               }
               
               
               <span className={`rounded-md w-[85px] h-[60px] flex justify-center items-center max-md:w-[30px] ${handlePositionColor(predict.Position, comparePlayer?.Position)}`}>{handlePositionLogo(predict.Position)}</span>
