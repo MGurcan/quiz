@@ -156,18 +156,18 @@ const ThisOrThat = () => {
   const FalseAnimation = ({player1, player2}) => {
     return(
     <TransitionGroup className="w-[650px] flex flex-col justify-center m-2 items-center text-center text-gray-light bg-red h-[300px] rounded-md">
-      <span>You Lost</span>
-      <span>Score: {score}</span>
+      <span className="text-[24px]">You Lost</span>
+      <span className="text-[24px]">Score: {score}</span>
       <div className="flex flex-row justify-center items-center p-4">
         <CSSTransition timeout={fadeDuration} className="fade p-8">
           <FadeInDiv0>
-            <span className="w-[300px]">{player1.Name}({gameType==='marketValue' ? player1.MarketValue : getAgeFromBirthDate(player1.BirthDate)})</span>
+            <span className="w-[300px] border-2 border-gray-light p-4 rounded-md">{player1.Name}(<strong className="underline p-2">{gameType==='marketValue' ? player1.MarketValue : getAgeFromBirthDate(player1.BirthDate)}</strong>)</span>
           </FadeInDiv0>
         </CSSTransition>
 
         <CSSTransition timeout={fadeDuration} className="fade p-8">
           <FadeInDiv1>
-            <span className="w-[300px]">{player2.Name}({gameType==='marketValue' ? player2.MarketValue : getAgeFromBirthDate(player2.BirthDate)})</span>
+            <span className="w-[300px] border-2 border-gray-light p-4 rounded-md">{player2.Name}(<strong className="underline p-2">{gameType==='marketValue' ? player2.MarketValue : getAgeFromBirthDate(player2.BirthDate)}</strong>)</span>
           </FadeInDiv1>
         </CSSTransition>
       </div>
@@ -196,7 +196,7 @@ const ThisOrThat = () => {
         <button className={`${gameType === 'age' ? 'bg-gray-light text-mor' : ''} text-gray-light text-[18px] border-2 border-mor w-[200px] rounded-md p-4 hover:bg-gray-light hover:cursor-pointer hover:text-mor m-2`} onClick={() => changeGameType('age')}>AGE</button>
       </div>
       <div className="flex flex-col justify-center items-center text-[32px] text-center text-gray-light p-8 max-md:text-[20px]">
-        <div>Select the player who {gameType === 'marketValue' ? 'has higher Market Value' : ' is older'}</div>
+        <div>Select the player who {gameType === 'marketValue' ? <>has higher <strong className='text-mor underline decoration-double'>'Market Value'</strong></> : <>is <strong className='text-mor underline decoration-double'>'older'</strong></>}</div>
         <div>SCORE: {score} </div>
       </div>
       <div className="flex flex-row justify-center items-center">
